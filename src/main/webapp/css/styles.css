@@ -1,0 +1,89 @@
+/*css para la cabecera*/
+
+body{
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 10em;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 20%;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+.logo h1{
+    display: flex;
+    text-align: center;
+    margin-left: -2%;
+    margin-right: 8%;
+}
+
+.logo img{
+    display: flex;
+    position: relative;
+    width: 10em;
+    text-align: center;
+    margin-left: -8%;
+    margin-right: 5%;
+}
+
+/* css para formulario*/
+.form{
+    position: relative;
+    border: 0.2em solid blue;
+    width: 20em;
+    height: 20em;
+    text-align: center;
+    margin-left: 42%;
+    top: 7em;
+    background-color: gainsboro;
+}
+
+.formheader{
+    background-color: blue;
+    color: azure;
+    margin-top: auto;
+    padding: 8px;
+    size: 2em;
+}
+
+.formlabel{
+    position: relative;
+    padding: 10px;
+    display: block;
+    top: 5px;
+    font-weight:bolder;
+}
+
+.formingresar{
+    position: relative;
+    top: 20px;
+}
+
+/*css para pie de pagina*/
+.footer{
+    position: relative;
+    margin-left: 40%;
+    top: 230px;
+    text-align: center;
+}
+
+@media (max-width = 800px)
+{
+    header{
+        flex-direction: column;
+    }
+
+    .logo img{
+        width: 5em;
+    }
+}
