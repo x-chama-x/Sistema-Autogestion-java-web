@@ -161,4 +161,7 @@ table{
     .tablecontainer{
         margin-left: 25%;
     }
+    .tablelink{
+        margin-left: 0%;
+    }
 }
