@@ -4,7 +4,7 @@ body{
     margin: 0;
 }
 header{
-    margin-left: 35%;
+    margin-left: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,11 +129,15 @@ table{
 
 .tablecontainer{
     width: 15%;
-    margin-left: 47%;
+    margin-left: 42%;
     display: block;
     margin-top: 5%;
 }
-@media (max-width: 1000px)
+
+.tablelink{
+    margin-left: 30%;
+}
+@media (max-width: 800px)
 {
     header{
         /* Reverse the axis of the header, making it vertical. */
@@ -147,11 +151,17 @@ table{
     }
 
     .form{
-        margin-left: 20%;
+        margin-left: 23%;
         width: 15rem;
     }
     
+    .navcontainer{
+        margin-left: 23%;
+    }
     .tablecontainer{
         margin-left: 25%;
+    }
+    .tablelink{
+        margin-left: 0%;
     }
 }
