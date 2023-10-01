@@ -103,6 +103,12 @@ header{
     color: blue;
 }
 
+.asalir{
+    position: relative;
+    margin-top: 5%;
+    text-align: center;
+    display: block;
+}
 /*css para tablas*/
 table{
     width: 15%;
