@@ -11,28 +11,31 @@ import java.util.List;
  * @author Manuel Botas
  */
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
-        @Override
-        public void insertar(Calificacion entidad) throws Exception {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+    private static int contador = 1;
+    private static List<Calificacion> calificaciones;
+    
+    @Override
+    public void insertar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        @Override
-        public void modificar(Calificacion entidad) throws Exception {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+    @Override
+    public void modificar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        @Override
-        public void eliminar(Calificacion id) throws Exception {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+    @Override
+    public void eliminar(Calificacion id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        @Override
-        public List<Calificacion> listar() throws Exception {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+    @Override
+    public List<Calificacion> listar() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        @Override
-        public Calificacion buscar(Integer id) throws Exception {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+    @Override
+    public Calificacion buscar(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
