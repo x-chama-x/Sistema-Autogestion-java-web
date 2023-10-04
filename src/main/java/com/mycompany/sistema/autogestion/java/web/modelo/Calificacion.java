@@ -9,6 +9,7 @@ public class Calificacion {
     private int idCalificacion;
     private int nota;
     private int numExamen;
+    private String materia;
 
     public Calificacion(int idCalificacion, int nota, int numExamen) {
         this.idCalificacion = idCalificacion;
@@ -38,5 +39,13 @@ public class Calificacion {
 
     public void setNumExamen(int numExamen) {
         this.numExamen = numExamen;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 }
