@@ -11,10 +11,11 @@ public class Calificacion {
     private int numExamen;
     private String materia;
 
-    public Calificacion(int idCalificacion, int nota, int numExamen) {
+    public Calificacion(int idCalificacion, int nota, int numExamen, String materia) {
         this.idCalificacion = idCalificacion;
         this.nota = nota;
         this.numExamen = numExamen;
+        this.materia = materia;
     }
 
     public int getIdCalificacion() {
