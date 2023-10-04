@@ -10,14 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Academico Calificaciones</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
+            <img src="../../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
             <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-            <img src="../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
+            <img src="../../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
         </div>
     </header>
     <br>
@@ -84,6 +84,6 @@
         </c:forEach>
     </table>
 
-    <a class = "asalir" href="../jsp_alumnos/MenuAlumno.html">Salir</a>
+    <a class = "asalir" href="./MenuAlumno.html">Salir</a>
 </body>
 </html>
