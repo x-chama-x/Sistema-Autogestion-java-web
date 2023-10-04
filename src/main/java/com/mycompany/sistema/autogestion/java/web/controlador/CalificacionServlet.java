@@ -6,6 +6,11 @@ package com.mycompany.sistema.autogestion.java.web.controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
+import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +23,12 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class CalificacionServlet extends HttpServlet {
 
+    private DAO<Calificacion, Integer> calificacionDAO;
+
+    @Override
+    public void init() throws ServletException {
+        calificacionDAO = new CalificacionDAO();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,7 +68,7 @@ public class CalificacionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("calificaciones", CalificacionDAO.listar());
+            request.setAttribute("calificaciones", calificacionDAO.listar());
             request.getRequestDispatcher("/calificaciones.jsp").forward(request, response);
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
