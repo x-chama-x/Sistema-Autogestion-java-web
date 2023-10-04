@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,8 +31,8 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
     @Override
-    public List<Calificacion> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<Calificacion> listar() {
+        return new ArrayList<>(this.calificaciones);
     }
 
     @Override
