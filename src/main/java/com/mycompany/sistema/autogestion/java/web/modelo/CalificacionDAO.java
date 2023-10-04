@@ -45,4 +45,20 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     public Calificacion buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    private void insertarCalificaciones() {
+        addCalificacion(new Calificacion(contador, 8, 1, "Lengua"));
+        addCalificacion(new Calificacion(contador, 6, 2, "Lengua"));
+        addCalificacion(new Calificacion(contador, 7, 1, "Historia"));
+        addCalificacion(new Calificacion(contador, 6, 1, "Educación Física"));
+        addCalificacion(new Calificacion(contador, 8, 1, "Historia"));
+        addCalificacion(new Calificacion(contador, 6, 2, "Biología"));
+        addCalificacion(new Calificacion(contador, 3, 3, "Matemáticas"));
+        addCalificacion(new Calificacion(contador, 0, 2, "Educación Física"));
+        addCalificacion(new Calificacion(contador, 10, 1, "Química"));
+        addCalificacion(new Calificacion(contador, 8, 1, "Geografía"));
+        addCalificacion(new Calificacion(contador, 8, 3, "Historia"));
+        addCalificacion(new Calificacion(contador, 7, 3, "Matemáticas"));
+        addCalificacion(new Calificacion(contador, 1, 2, "Matemáticas"));
+    }
 }

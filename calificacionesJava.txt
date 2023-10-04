@@ -1,0 +1,10 @@
+addCalificacion(new Calificacion(contador, 94, 2, "Historia"));
+addCalificacion(new Calificacion(contador, 85, 3, "Historia"));
+addCalificacion(new Calificacion(contador, 19, 1, "Geografía"));
+addCalificacion(new Calificacion(contador, 53, 3, "Lengua"));
+addCalificacion(new Calificacion(contador, 78, 3, "Química"));
+addCalificacion(new Calificacion(contador, 34, 3, "Inglés"));
+addCalificacion(new Calificacion(contador, 83, 1, "Física"));
+addCalificacion(new Calificacion(contador, 67, 1, "Historia"));
+addCalificacion(new Calificacion(contador, 47, 2, "Geografía"));
+addCalificacion(new Calificacion(contador, 38, 3, "Historia"));
