@@ -69,7 +69,7 @@ public class CalificacionServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("calificaciones", calificacionDAO.listar());
-            request.getRequestDispatcher("/calificaciones.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }

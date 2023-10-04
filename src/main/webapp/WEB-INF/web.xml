@@ -7,7 +7,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CalificacionServlet</servlet-name>
-        <url-pattern>/calificaciones</url-pattern>
+        <url-pattern>/jsp/jsp_alumnos/calificaciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
