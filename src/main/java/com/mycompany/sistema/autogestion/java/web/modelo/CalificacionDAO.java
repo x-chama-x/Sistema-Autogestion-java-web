@@ -15,6 +15,11 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     private static int contador = 1;
     private List<Calificacion> calificaciones;
 
+    public CalificacionDAO() {
+        this.calificaciones = new ArrayList<>();
+        insertarCalificaciones();
+    }
+
     public void addCalificacion(Calificacion calificacion) {
         calificacion.setIdCalificacion(contador);
         calificaciones.add(calificacion);
