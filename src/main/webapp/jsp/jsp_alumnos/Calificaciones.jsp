@@ -36,52 +36,30 @@
                 Nota
             </th>
         </tr>
-        <tr>
-            <td class="tabletd">
-                Lengua
-            </td>
-            <td class="tabletd">
-                1
-            </td>
-            <td class="tabletd">
-                8
-            </td>
-        </tr>
-        <tr>
-            <td class="tabletd">
-                Lengua
-            </td>
-            <td class="tabletd">
-                2
-            </td>
-            <td class="tabletd">
-                6
-            </td>
-        </tr>
-        <tr>
-            <td class="tabletd">
-                Historia
-            </td>
-            <td class="tabletd">
-                1
-            </td>
-            <td class="tabletd">
-                7
-            </td>
-        </tr>
-        <c:forEach items="listaDeCalificaciones" var="calificacion">
-            <tr>
-                <td class="tabletd">
-                    ${calificacion.materia}
-                </td>
-                <td class="tabletd">
-                    ${calificacion.numExamen}
-                </td>
-                <td class="tabletd">
-                    ${calificacion.nota}
-                </td>
-            </tr>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${empty calificaciones}">
+                <tr>
+                    <td colspan="3" class="tabletd">
+                        No hay calificaciones
+                    </td>
+                </tr>
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${calificaciones}" var="calificacion">
+                    <tr>
+                        <td class="tabletd">
+                            ${calificacion.materia}
+                        </td>
+                        <td class="tabletd">
+                            ${calificacion.numExamen}
+                        </td>
+                        <td class="tabletd">
+                            ${calificacion.nota}
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </table>
 
     <a class = "asalir" href="./MenuAlumno.html">Salir</a>
