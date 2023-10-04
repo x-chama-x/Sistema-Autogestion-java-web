@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     private static int contador = 1;
-    private static List<Calificacion> calificaciones;
+    private List<Calificacion> calificaciones;
 
     public void addCalificacion(Calificacion calificacion) {
         calificacion.setIdCalificacion(contador);
