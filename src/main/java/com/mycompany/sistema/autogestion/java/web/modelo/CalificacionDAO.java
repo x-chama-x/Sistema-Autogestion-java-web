@@ -14,6 +14,12 @@ import java.util.List;
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     private static int contador = 1;
     private static List<Calificacion> calificaciones;
+
+    public void addCalificacion(Calificacion calificacion) {
+        calificacion.setIdCalificacion(contador);
+        calificaciones.add(calificacion);
+        contador++;
+    }
     
     @Override
     public void insertar(Calificacion entidad) throws Exception {
