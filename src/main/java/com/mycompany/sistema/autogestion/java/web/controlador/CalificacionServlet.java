@@ -56,7 +56,12 @@ public class CalificacionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            request.setAttribute("calificaciones", CalificacionDAO.listar());
+            request.getRequestDispatcher("/calificaciones.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendError(500, e.getMessage());
+        }
     }
 
     /**
