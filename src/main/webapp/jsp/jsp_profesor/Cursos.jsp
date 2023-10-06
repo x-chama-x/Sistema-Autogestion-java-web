@@ -22,12 +22,12 @@
         </tr>
         <tr>
             <td class="tabletd">
-                1° 2da <a href="http://" class="tablelink"> ver alumnos</a>
+                1er 2da <a href="http://" class="tablelink"> ver alumnos</a>
             </td>
         </tr>
         <tr>
             <td class="tabletd">
-                2° 2da <a href="http://" class="tablelink"> ver alumnos</a>
+                2do 2da <a href="http://" class="tablelink"> ver alumnos</a>
             </td>
         </tr>
     </table>
