@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <c:import url= "header.html">
+        <c:import url= "header.html"/>
         
         <form class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
