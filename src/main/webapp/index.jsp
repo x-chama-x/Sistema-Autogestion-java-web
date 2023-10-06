@@ -31,5 +31,6 @@
             </div>
         </form>
         <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajo</a>
+        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajo2</a>
     </body>
 </html>
