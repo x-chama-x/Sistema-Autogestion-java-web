@@ -13,15 +13,7 @@
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
-            <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-            <img src="../../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
-        </div>
-    </header>
-    <br>
-    <hr>
+    <c:import url= "/header.jsp"/>
 
     <table class="tablecontainer">
         <caption class = "tablecaption">Calificaciones del alumno</caption>
@@ -62,6 +54,6 @@
         </c:choose>
     </table>
 
-    <a class = "asalir" href="./MenuAlumno.html">Salir</a>
+    <a class = "asalir" href="./MenuAlumno.jsp">Salir</a>
 </body>
 </html>

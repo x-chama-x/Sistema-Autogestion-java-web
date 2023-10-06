@@ -1,3 +1,6 @@
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,15 +10,8 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <img src="img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
-                <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-                <img src="img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-            </div>
-        </header>
-        <br>
-        <hr>
+        <c:import url= "/header.jsp"/>
+        
         <form class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
@@ -34,6 +30,7 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a href="./jsp/jsp_alumnos/MenuAlumno.html">atajo</a>
+        <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajo</a>
+        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajo2</a>
     </body>
 </html>

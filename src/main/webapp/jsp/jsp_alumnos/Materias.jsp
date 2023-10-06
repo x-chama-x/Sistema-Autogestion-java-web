@@ -1,3 +1,6 @@
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +11,7 @@
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../../img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
-            <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-            <img src="../../img/escudo.jpg" class="logoimg" alt="escudo de la escuela">
-        </div>
-    </header>
-    <br>
-    <hr>
+    <c:import url= "/header.jsp"/>
 
     <table class="tablecontainer">
         <caption class = "tablecaption">Cursada del alumno</caption>
