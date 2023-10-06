@@ -10,15 +10,10 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <img src="img/escudo.jpg" alt="escudo de la escuela" class="logoimg">
-                <h1 class="logotext">Escuela Tecnica N 28 Republica Francesa</h1>
-                <img src="img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-            </div>
-        </header>
-        <br>
-        <hr>
+        <c:import url= "header.html">
+
+        </c:import>
+        
         <form class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
