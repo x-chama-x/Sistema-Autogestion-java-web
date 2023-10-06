@@ -15,7 +15,7 @@
 
     <nav class="navcontainer">
         <h4 class="navh4">CHIMINELLI, Francisco Fabian</h4>
-        <a href="./Cursos.html" class="nava">Gestionar cursos</a>
+        <a href="./Cursos.jsp" class="nava">Gestionar cursos</a>
         <a href="http://" class="nava">Gestiionar Calificaciones</a>
         <a href="../../index.jsp" class="nava">Salir</a>
     </nav>
