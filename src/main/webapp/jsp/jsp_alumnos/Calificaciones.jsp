@@ -54,6 +54,6 @@
         </c:choose>
     </table>
 
-    <a class = "asalir" href="./MenuAlumno.html">Salir</a>
+    <a class = "asalir" href="./MenuAlumno.jsp">Salir</a>
 </body>
 </html>

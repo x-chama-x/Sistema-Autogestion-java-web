@@ -30,6 +30,6 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a href="./jsp/jsp_alumnos/MenuAlumno.html">atajo</a>
+        <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajo</a>
     </body>
 </html>

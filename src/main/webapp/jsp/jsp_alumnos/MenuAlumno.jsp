@@ -10,21 +10,13 @@
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../../img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-            <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-            <img src="../../img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-        </div>
-    </header>
-    <br>
-    <hr>
+    <c:import url= "/header.jsp"/>
     <nav class="navcontainer">
         <h4 class="navh4">${Usuario.apellido},${Usuario.nombre}</h4>
         <p>Curso: 1°año 2da division</p>
-        <a href="./Materias.html" class="nava">Materias</a>
-        <a href="./Calificaciones.html" class="nava">Calificaciones</a>
-        <a href="../../index.html" class="nava">Salir</a>
+        <a href="./Materias.jsp" class="nava">Materias</a>
+        <a href="calificaciones" class="nava">Calificaciones</a>
+        <a href="../../index.jsp" class="nava">Salir</a>
     </nav>
 </body>
 </html>
