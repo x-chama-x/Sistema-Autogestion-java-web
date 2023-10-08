@@ -1,5 +1,11 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+
+<%-- 
+    Document   : Cursos
+    Created on : 8 oct. 2023, 18:57:31
+    Author     : Francisco
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -13,7 +19,6 @@
 </head>
 <body>
     <c:import url= "/header.jsp"/>
-
     <table class="tablecontainer">
         <caption class = "tablecaption">Cursos del profesor</caption>
         <tr>
@@ -23,12 +28,12 @@
         </tr>
         <tr>
             <td class="tabletd">
-                1er 2da <a href="http://" class="tablelink"> ver alumnos</a>
+                1° 2da <a href="http://" class="tablelink"> ver alumnos</a>
             </td>
         </tr>
         <tr>
             <td class="tabletd">
-                2do 2da <a href="http://" class="tablelink"> ver alumnos</a>
+                2° 2da <a href="http://" class="tablelink"> ver alumnos</a>
             </td>
         </tr>
         <c:choose>
@@ -50,7 +55,6 @@
             </c:otherwise>
         </c:choose>
     </table>
-
     <a class = "asalir" href="./MenuProfesor.jsp">Salir</a>
 </body>
 </html>
