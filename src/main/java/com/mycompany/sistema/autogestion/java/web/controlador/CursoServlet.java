@@ -4,8 +4,14 @@
  */
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.Curso;
+import com.mycompany.sistema.autogestion.java.web.modelo.CursoDAO;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class CursoServlet extends HttpServlet {
 
+    private DAO<Curso, Integer> cursoDAO;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -55,7 +62,12 @@ public class CursoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                try {
+                    request.setAttribute("cursos", cursoDAO.listar());
+                    request.getRequestDispatcher("/jsp/jsp_profesor/Cursos.jsp").forward(request, response);
+                } catch (Exception e) {
+                    response.sendError(500, e.getMessage());
+                }
     }
 
     /**
