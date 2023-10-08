@@ -11,7 +11,6 @@
     </head>
     <body>
         <c:import url= "/header.jsp"/>
-        
         <form class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
@@ -30,7 +29,7 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajo</a>
-        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajo2</a>
+        <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajoAlum</a>
+        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajoProfe</a>
     </body>
 </html>

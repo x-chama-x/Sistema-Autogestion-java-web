@@ -4,7 +4,7 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 /**
