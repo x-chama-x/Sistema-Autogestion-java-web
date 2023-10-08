@@ -36,6 +36,24 @@
                 2° 2da <a href="http://" class="tablelink"> ver alumnos</a>
             </td>
         </tr>
+        <c:choose>
+            <c:when test="${empty cursos}">
+                <tr>
+                    <td class="tabletd">
+                        No hay cursos
+                    </td>
+                </tr>
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${cursos}" var="curso">
+                    <tr>
+                        <td class="tabletd">
+                            ${curso.anioDivision} <a href="http://" class="tablelink"> ver alumnos</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </table>
     <a class = "asalir" href="./MenuProfesor.jsp">Salir</a>
 </body>
