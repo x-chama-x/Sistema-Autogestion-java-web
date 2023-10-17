@@ -15,7 +15,7 @@ public class CursoDAO implements DAO<Curso, Integer> {
     private static int contador = 1;
     private List <Curso> cursos;
 
-    public CursoDAO(List<Curso> cursos) {
+    public CursoDAO() {
         this.cursos = new ArrayList<>();
         insertarCursos();
     }
@@ -42,8 +42,8 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     @Override
-    public List<Curso> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Curso> listar() {
+        return new ArrayList<>(this.cursos);
     }
 
     @Override

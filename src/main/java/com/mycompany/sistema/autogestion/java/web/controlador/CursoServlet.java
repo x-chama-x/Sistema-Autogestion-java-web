@@ -24,6 +24,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class CursoServlet extends HttpServlet {
 
     private DAO<Curso, Integer> cursoDAO;
+    
+    @Override
+    public void init() throws ServletException {
+        cursoDAO = new CursoDAO();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
