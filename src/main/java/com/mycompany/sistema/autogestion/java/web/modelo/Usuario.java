@@ -15,12 +15,12 @@ public abstract class Usuario {
     private String email;
     private Estado estado;
 
-    public Usuario(int id_usuario, String nombre, String apellido, String email, Estado estado) {
+    public Usuario(int id_usuario, String nombre, String apellido, String email) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.estado = estado;
+        this.estado = estado.ACTIVO; // por defecto se define activo
     }
 
     public int getId_usuario() {
