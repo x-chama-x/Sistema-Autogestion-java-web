@@ -20,7 +20,7 @@
 <body>
     <c:import url= "/header.jsp"/>
     <table class="tablecontainer">
-        <caption class = "tablecaption">Cursos del profesor</caption>
+        <!-- <caption class = "tablecaption">Cursos del profesor</caption> -->
         <tr>
             <th class = "tableth">
                 Cursos

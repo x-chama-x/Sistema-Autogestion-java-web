@@ -16,7 +16,7 @@
     <c:import url= "/header.jsp"/>
 
     <table class="tablecontainer">
-        <caption class = "tablecaption">Calificaciones del alumno</caption>
+        <!-- <caption class = "tablecaption">Calificaciones del alumno</caption> -->
         <tr>
             <th class = "tableth">
                 Materia
