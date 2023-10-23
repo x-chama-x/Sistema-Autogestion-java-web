@@ -168,13 +168,13 @@ table{
         width: 80%;
         display: flex;
         flex-direction: column;
-        margin-left: 36%;
+        margin-left: 25%;
     }
     .tablecontainer{
         width: 80%;
         display: flex;
         flex-direction: column;
-        margin-left: 36%;
+        margin-left: 25%;
     }
     .tabletd,.tableth,.tablecaption{
         width: 35%;
