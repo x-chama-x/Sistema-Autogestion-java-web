@@ -38,8 +38,8 @@ public class MateriaDAO implements DAO<Materia, Integer> {
     }
 
     @Override
-    public List<Materia> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Materia> listar() {
+        return new ArrayList<>(this.materias);
     }
 
     @Override
