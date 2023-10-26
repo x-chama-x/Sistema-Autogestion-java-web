@@ -46,5 +46,18 @@ public class MateriaDAO implements DAO<Materia, Integer> {
     public Materia buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    private void insertarMaterias() {
+        insertar(new Materia(contador, "Matemática"));
+        insertar(new Materia(contador, "Historia"));
+        insertar(new Materia(contador, "Ciencias Naturales"));
+        insertar(new Materia(contador, "Geografía"));
+        insertar(new Materia(contador, "Lengua y Literatura"));
+        insertar(new Materia(contador, "Inglés"));
+        insertar(new Materia(contador, "Educación Física"));
+        insertar(new Materia(contador, "Educación Artística"));
+        insertar(new Materia(contador, "Tecnología"));
+        insertar(new Materia(contador, "Formación Ética y Ciudadana"));
+    }
     
 }
