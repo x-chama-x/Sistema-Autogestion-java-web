@@ -5,6 +5,9 @@
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.Materia;
+import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
