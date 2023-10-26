@@ -19,6 +19,11 @@ import java.io.PrintWriter;
 public class MateriaServlet extends HttpServlet {
     
     private DAO<Materia,Integer> materiaDAO;
+    
+    @Override
+    public void init() throws ServletException {
+        materiaDAO = new MateriaDAO();
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
