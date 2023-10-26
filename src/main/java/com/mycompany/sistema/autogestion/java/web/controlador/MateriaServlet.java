@@ -55,7 +55,12 @@ public class MateriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            request.setAttribute("materias", materiaDAO.listar());
+            request.getRequestDispatcher("/jsp/jsp_alumnos/Materias.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendError(500, e.getMessage());
+        }
     }
 
     /**
