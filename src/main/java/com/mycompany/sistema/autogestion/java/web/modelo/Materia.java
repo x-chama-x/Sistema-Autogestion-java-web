@@ -9,5 +9,6 @@ package com.mycompany.sistema.autogestion.java.web.modelo;
  * @author Manuel Botas
  */
 public class Materia {
-    
+    private int idMateria;
+    private String nombre;
 }
