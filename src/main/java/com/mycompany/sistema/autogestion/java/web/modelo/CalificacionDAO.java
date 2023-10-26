@@ -19,12 +19,6 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
         this.calificaciones = new ArrayList<>();
         insertarCalificaciones();
     }
-
-    public void addCalificacion(Calificacion calificacion) {
-        calificacion.setIdCalificacion(contador);
-        calificaciones.add(calificacion);
-        contador++;
-    }
     
     @Override
     public void insertar(Calificacion calificacion) {
