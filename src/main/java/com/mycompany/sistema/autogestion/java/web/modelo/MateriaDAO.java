@@ -21,8 +21,10 @@ public class MateriaDAO implements DAO<Materia, Integer> {
     }
 
     @Override
-    public void insertar(Materia entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void insertar(Materia materia) {
+        materia.setIdMateria(contador);
+        materias.add(materia);
+        contador++;
     }
 
     @Override
