@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,11 @@ import java.util.List;
 public class MateriaDAO implements DAO<Materia, Integer> {
     private static int contador = 1;
     private List<Materia> materias;
+
+    public MateriaDAO() {
+        this.materias = new ArrayList<>();
+        insertarMaterias();
+    }
 
     @Override
     public void insertar(Materia entidad) throws Exception {
