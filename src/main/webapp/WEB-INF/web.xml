@@ -15,7 +15,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MateriaServlet</servlet-name>
-        <url-pattern>/MateriaServlet</url-pattern>
+        <url-pattern>/jsp/jsp_alumnos/materias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
