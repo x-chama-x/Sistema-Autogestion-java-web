@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
+import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +17,8 @@ import java.io.PrintWriter;
  * @author manue
  */
 public class MateriaServlet extends HttpServlet {
+    
+    private DAO<Materia,Integer> materiaDAO;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
