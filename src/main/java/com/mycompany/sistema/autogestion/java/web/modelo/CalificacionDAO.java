@@ -48,18 +48,18 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
     private void insertarCalificaciones() {
-        addCalificacion(new Calificacion(contador, 8, 1, "Lengua"));
-        addCalificacion(new Calificacion(contador, 6, 2, "Lengua"));
-        addCalificacion(new Calificacion(contador, 7, 1, "Historia"));
-        addCalificacion(new Calificacion(contador, 6, 1, "Educación Física"));
-        addCalificacion(new Calificacion(contador, 8, 1, "Historia"));
-        addCalificacion(new Calificacion(contador, 6, 2, "Biología"));
-        addCalificacion(new Calificacion(contador, 3, 3, "Matemáticas"));
-        addCalificacion(new Calificacion(contador, 0, 2, "Educación Física"));
-        addCalificacion(new Calificacion(contador, 10, 1, "Química"));
-        addCalificacion(new Calificacion(contador, 8, 1, "Geografía"));
-        addCalificacion(new Calificacion(contador, 8, 3, "Historia"));
-        addCalificacion(new Calificacion(contador, 7, 3, "Matemáticas"));
-        addCalificacion(new Calificacion(contador, 1, 2, "Matemáticas"));
+        insertar(new Calificacion(contador, 8, 1, "Lengua"));
+        insertar(new Calificacion(contador, 6, 2, "Lengua"));
+        insertar(new Calificacion(contador, 7, 1, "Historia"));
+        insertar(new Calificacion(contador, 6, 1, "Educación Física"));
+        insertar(new Calificacion(contador, 8, 1, "Historia"));
+        insertar(new Calificacion(contador, 6, 2, "Biología"));
+        insertar(new Calificacion(contador, 3, 3, "Matemáticas"));
+        insertar(new Calificacion(contador, 0, 2, "Educación Física"));
+        insertar(new Calificacion(contador, 10, 1, "Química"));
+        insertar(new Calificacion(contador, 8, 1, "Geografía"));
+        insertar(new Calificacion(contador, 8, 3, "Historia"));
+        insertar(new Calificacion(contador, 7, 3, "Matemáticas"));
+        insertar(new Calificacion(contador, 1, 2, "Matemáticas"));
     }
 }
