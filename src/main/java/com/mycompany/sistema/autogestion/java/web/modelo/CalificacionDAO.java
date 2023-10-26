@@ -27,8 +27,10 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
     
     @Override
-    public void insertar(Calificacion entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void insertar(Calificacion calificacion) {
+        calificacion.setIdCalificacion(contador);
+        calificaciones.add(calificacion);
+        contador++;
     }
 
     @Override
