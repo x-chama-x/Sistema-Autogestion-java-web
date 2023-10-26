@@ -11,6 +11,8 @@ import java.util.List;
  * @author Manuel Botas
  */
 public class MateriaDAO implements DAO<Materia, Integer> {
+    private static int contador = 1;
+    private List<Materia> materias;
 
     @Override
     public void insertar(Materia entidad) throws Exception {
