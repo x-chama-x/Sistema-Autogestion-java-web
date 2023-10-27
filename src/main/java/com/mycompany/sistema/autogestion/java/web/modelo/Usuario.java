@@ -9,5 +9,10 @@ package com.mycompany.sistema.autogestion.java.web.modelo;
  * @author Manuel Botas
  */
 public class Usuario {
-    
+    private int idUsuario;
+    private String nombre;
+    private String apellido;
+    private String legajo;
+    private String contrasenia;
+    private boolean estado;
 }
