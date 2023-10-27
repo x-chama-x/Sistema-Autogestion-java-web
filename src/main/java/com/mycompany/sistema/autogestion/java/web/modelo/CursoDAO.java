@@ -27,8 +27,10 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
     
     @Override
-    public void insertar(Curso entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void insertar(Curso curso) {
+        curso.setId_cursada(contador);
+        cursos.add(curso);
+        contador++;
     }
 
     @Override
