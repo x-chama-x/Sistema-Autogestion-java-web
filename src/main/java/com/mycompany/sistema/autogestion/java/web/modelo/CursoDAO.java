@@ -48,12 +48,12 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     private void insertarCursos() {
-        addCurso(new Curso(contador,"15"));
-        addCurso(new Curso(contador,"13"));
-        addCurso(new Curso(contador,"25"));
-        addCurso(new Curso(contador,"23"));
-        addCurso(new Curso(contador,"33"));
-        addCurso(new Curso(contador,"35"));
+        insertar(new Curso(contador,"15"));
+        insertar(new Curso(contador,"13"));
+        insertar(new Curso(contador,"25"));
+        insertar(new Curso(contador,"23"));
+        insertar(new Curso(contador,"33"));
+        insertar(new Curso(contador,"35"));
     }
 }
 
