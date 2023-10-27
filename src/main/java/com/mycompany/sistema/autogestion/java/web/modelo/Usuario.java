@@ -15,4 +15,15 @@ public class Usuario {
     private String legajo;
     private String contrasenia;
     private boolean estado;
+
+    public Usuario(int idUsuario, String nombre, String apellido, String legajo, String contrasenia) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.legajo = legajo;
+        this.contrasenia = contrasenia;
+        this.estado = true;
+    }
+    
+    
 }
