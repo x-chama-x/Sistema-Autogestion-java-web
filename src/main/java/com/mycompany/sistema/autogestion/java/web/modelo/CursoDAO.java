@@ -15,7 +15,7 @@ public class CursoDAO implements DAO<Curso, Integer> {
     private static int contador = 1;
     private List <Curso> cursos;
 
-    public CursoDAO(List<Curso> cursos) {
+    public CursoDAO() {
         this.cursos = new ArrayList<>();
         insertarCursos();
     }
