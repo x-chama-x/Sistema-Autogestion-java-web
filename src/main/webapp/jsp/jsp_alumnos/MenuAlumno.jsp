@@ -15,7 +15,7 @@
     <nav class="navcontainer">
         <h4 class="navh4">${Usuario.apellido},${Usuario.nombre}</h4>
         <p>Curso: 1 año 2da division</p>
-        <a href="./Materias.jsp" class="nava">Materias</a>
+        <a href="materias" class="nava">Materias</a>
         <a href="calificaciones" class="nava">Calificaciones</a>
         <a href="../../index.jsp" class="nava">Salir</a>
     </nav>
