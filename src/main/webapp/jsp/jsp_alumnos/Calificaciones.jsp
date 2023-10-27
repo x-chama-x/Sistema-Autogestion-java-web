@@ -10,13 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Academico Calificaciones</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles(2).css">
 </head>
 <body>
     <c:import url= "/header.jsp"/>
 
     <table class="tablecontainer">
-        <caption class = "tablecaption">Calificaciones del alumno</caption>
+        <!-- <caption class = "tablecaption">Calificaciones del alumno</caption> -->
         <tr>
             <th class = "tableth">
                 Materia
