@@ -12,7 +12,34 @@ import java.util.List;
  * @author Manuel Botas
  */
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
-    private static int contador = 1;
+
+    @Override
+    public void insertar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void modificar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void eliminar(Calificacion id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Calificacion> listar() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Calificacion buscar(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
+    /*private static int contador = 1;
     private List<Calificacion> calificaciones;
 
     public CalificacionDAO() {
@@ -61,5 +88,5 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
         insertar(new Calificacion(contador, 8, 3, "Historia"));
         insertar(new Calificacion(contador, 7, 3, "Matemáticas"));
         insertar(new Calificacion(contador, 1, 2, "Matemáticas"));
-    }
+    }*/
 }
