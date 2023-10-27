@@ -9,13 +9,15 @@ public class Calificacion {
     private int idCalificacion;
     private int nota;
     private int numExamen;
-    private String materia;
+    private int idAlumno;
+    private int idMateria;
 
-    public Calificacion(int idCalificacion, int nota, int numExamen, String materia) {
+    public Calificacion(int idCalificacion, int nota, int numExamen, int idAlumno, int idMateria) {
         this.idCalificacion = idCalificacion;
         this.nota = nota;
         this.numExamen = numExamen;
-        this.materia = materia;
+        this.idAlumno = idAlumno;
+        this.idMateria = idMateria;
     }
 
     public int getIdCalificacion() {
@@ -42,11 +44,21 @@ public class Calificacion {
         this.numExamen = numExamen;
     }
 
-    public String getMateria() {
-        return materia;
+    public int getIdAlumno() {
+        return idAlumno;
     }
 
-    public void setMateria(String materia) {
-        this.materia = materia;
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
     }
+
+    public int getIdMateria() {
+        return idMateria;
+    }
+
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
+    }
+
+    
 }
