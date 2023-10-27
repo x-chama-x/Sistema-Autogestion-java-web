@@ -19,12 +19,6 @@ public class CursoDAO implements DAO<Curso, Integer> {
         this.cursos = new ArrayList<>();
         insertarCursos();
     }
-
-    public void addCurso(Curso curso) {
-        curso.setId_cursada(contador);
-        cursos.add(curso);
-        contador++;
-    }
     
     @Override
     public void insertar(Curso curso) {
