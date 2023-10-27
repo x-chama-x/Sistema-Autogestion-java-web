@@ -41,12 +41,25 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery()) {
             while(rs.next()) {
-                calificaciones.add(rsToCalificacion(rs));
+                calificaciones.add(rsRowToCalificacion(rs));
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
         return calificaciones;
+    }
+
+    private Calificacion rsRowToCalificacion(ResultSet rs) {
+        try {
+            int idCalificacion = rs.getInt("id_calificacion");
+            int nota = rs.getInt("nota");
+            int numExamen = rs.getInt("num_examen");
+            int idAlumno = rs.getInt("id_alumno");
+            int idMateria = rs.getInt("id_materia");
+            return new Calificacion(idCalificacion, nota, numExamen, idAlumno, idMateria);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
