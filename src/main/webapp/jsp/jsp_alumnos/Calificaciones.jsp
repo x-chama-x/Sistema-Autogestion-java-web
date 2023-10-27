@@ -40,7 +40,7 @@
                 <c:forEach items="${calificaciones}" var="calificacion">
                     <tr>
                         <td class="tabletd">
-                            ${calificacion.materia}
+                            ${calificacion.idMateria}
                         </td>
                         <td class="tabletd">
                             ${calificacion.numExamen}
