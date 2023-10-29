@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Academico Materias</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles(2).css">
 </head>
 <body>
     <c:import url= "/header.jsp"/>
 
     <table class="tablecontainer">
-        <caption class = "tablecaption">Cursada del alumno</caption>
+        
         <tr>
             <th class = "tableth">
                 Materia
@@ -36,6 +36,24 @@
                 Historia
             </td>
         </tr>
+        <c:choose>
+            <c:when test="${empty materias}">
+                <tr>
+                    <td colspan="3" class="tabletd">
+                        No hay materias
+                    </td>
+                </tr>
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${materias}" var="materia">
+                    <tr>
+                        <td class="tabletd">
+                            ${materia.nombre}
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </table>
 
     <a class = "asalir" href="./MenuAlumno.jsp">Salir</a>

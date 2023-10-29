@@ -1,0 +1,233 @@
+/*css para la cabecera*/
+
+body{
+    margin: 0;
+}
+header{
+    margin-left: 24%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.logoimg{
+    width: 5rem;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* css para formulario*/
+.form{
+    position: relative;
+    border: 0.2em solid blue;
+    width: 15em;
+    height: 15em;
+    text-align: center;
+    margin-left: 42%;
+    top: 7em;
+    background-color: gainsboro;
+}
+
+.formheader{
+    background-color: blue;
+    color: azure;
+    margin-top: auto;
+    padding: 8px;
+    size: 2em;
+}
+
+.formlabel{
+    position: relative;
+    padding: 10px;
+    display: block;
+    top: 5px;
+    font-weight:bolder;
+}
+
+.formingresar{
+    position: relative;
+    top: 20px;
+}
+
+/*css para pie de pagina*/
+.footer{
+    position: relative;
+    margin-left: 40%;
+    top: 230px;
+    text-align: center;
+}
+
+/*css para nav*/
+.navcontainer{
+    position: relative;
+    border: 0.2em solid blue;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    margin-left: 42%;
+    top: 7em;
+    background-color: gainsboro;
+}
+
+.navh4{
+    background-color: blue;
+    color: azure;
+    margin-top: auto;
+    padding: 8px;
+    size: 2em;
+}
+
+.navcontainer p{
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+}
+.nava{
+    position: relative;
+    padding: 20px;
+    display: block;
+    top: 5px;
+    font-weight:bolder;
+    color: black;
+}
+.nava:hover{
+    color: blue;
+}
+
+.asalir{
+    position: relative;
+    margin-top: 5%;
+    text-align: center;
+    display: block;
+}
+/*css para tablas*/
+table{
+    width: 15%;
+    border-collapse: collapse;
+    text-align: center;
+    display: block;
+}
+
+.tablecaption{
+    background-color: gainsboro;
+    border: 0.1rem solid black;
+}
+.tabletd{
+    width: 15%;
+    border: 0.1rem solid black;
+    
+}
+
+.tableth{
+    width: 15%;
+    background-color: gainsboro;
+    border: 0.1rem solid black;
+}
+
+.tablecontainer{
+    width: 15%;
+    margin-left: 42%;
+    display: block;
+    margin-top: 5%;
+}
+
+.tablelink{
+    margin-left: 30%;
+}
+@media (max-width: 300px)
+{
+    .navcontainer{
+        margin-left: 20%;
+    }
+}
+@media (max-width: 810px)
+{
+    header{
+        /* Reverse the axis of the header, making it vertical. */
+        flex-direction: column;
+        
+        /* Align items to the begining (the left) of the header. */
+        align-items: flex-start;
+        font-size: smaller;
+        margin-left: 10%;
+        height: 6rem;
+    }
+    .navcontainer{
+        margin-left: 35%;
+    }
+    table{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 25%;
+    }
+    .tablecontainer{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 25%;
+    }
+    .tabletd,.tableth,.tablecaption{
+        width: 35%;
+        padding: 0.5rem;
+    }
+}
+@media (max-width: 768px)
+{
+    header{
+        /* Reverse the axis of the header, making it vertical. */
+        flex-direction: column;
+        
+        /* Align items to the begining (the left) of the header. */
+        align-items: flex-start;
+        font-size: smaller;
+        margin-left: 0%;
+        height: 6rem;
+    }
+
+    .form{
+        margin-left: 23%;
+        width: 15rem;
+    }
+    
+    .navcontainer{
+        margin-left: 20%;
+    }
+
+    table{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+    }
+    .tablecontainer{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+    }
+    .tabletd,.tableth,.tablecaption{
+        width: 20%;
+        padding: 0.5rem;
+    }
+    /* table{
+        margin-left: 25%;
+        display: flex;
+    }
+    .tablecontainer{
+        margin-left: 25%;
+        display: flex;
+    }
+    .tablelink{
+        margin-left: 0%;
+    } */
+}
