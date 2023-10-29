@@ -38,8 +38,8 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     @Override
-    public List<Curso> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Curso> listar() {
+        return new ArrayList<>(this.cursos);
     }
 
     @Override

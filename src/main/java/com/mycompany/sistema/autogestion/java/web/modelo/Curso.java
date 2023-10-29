@@ -21,16 +21,18 @@ public class Curso {
         return id_cursada;
     }
 
-    public String getId_curso() {
-        return anioDivision;
-    }
-
     public void setId_cursada(int id_cursada) {
         this.id_cursada = id_cursada;
     }
 
-    public void setId_curso(String id_curso) {
-        this.anioDivision = id_curso;
+    public String getAnioDivision() {
+        return anioDivision;
     }
+
+    public void setAnioDivision(String anioDivision) {
+        this.anioDivision = anioDivision;
+    }
+
+
     
 }
