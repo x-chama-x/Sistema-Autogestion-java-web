@@ -1,4 +1,4 @@
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%-- 
     Document   : Cursos
@@ -16,16 +16,16 @@
         <link rel="stylesheet" href="../../css/styles.css">
     </head>
     <body>
-        <c:import url= "/header.jsp"/>
+        <c:import url="/header.jsp"/>
         <table class="tablecontainer">
-            <caption class = "tablecaption">Cursos del profesor</caption>
+            <caption class="tablecaption">Cursos del profesor</caption>
             <tr>
-                <th class = "tableth">
+                <th class="tableth">
                     Cursos
                 </th>
             </tr>
 
-             <c:choose>
+            <c:choose>
                 <c:when test="${empty cursos}">
                     <tr>
                         <td class="tabletd">
@@ -42,9 +42,9 @@
                         </tr>
                     </c:forEach>
                 </c:otherwise>
-            </c:choose> 
+            </c:choose>
         </table>
-        <a class = "asalir" href="./MenuProfesor.jsp">Salir</a>
+        <a class="asalir" href="./MenuProfesor.jsp">Salir</a>
     </body>
 </html>
 

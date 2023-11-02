@@ -4,7 +4,11 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,18 +16,9 @@ import java.util.List;
  * @author Francisco
  */
 public class CursoDAO implements DAO<Curso, Integer> {
-    private static int contador = 1;
-    private List <Curso> cursos;
-
-    public CursoDAO() {
-        this.cursos = new ArrayList<>();
-        insertarCursos();
-    }
 
     public void addCurso(Curso curso) {
-        curso.setId_cursada(contador);
-        cursos.add(curso);
-        contador++;
+
     }
     
     @Override
@@ -43,7 +38,18 @@ public class CursoDAO implements DAO<Curso, Integer> {
 
     @Override
     public List<Curso> listar() {
-        return new ArrayList<>(this.cursos);
+        List<Curso> cursos = new LinkedList<>(); 
+        String query = "SELECT * FROM cursada";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement ps = con.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                cursos.add(rsRowToCurso(rs));
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return cursos;
     }
 
     @Override
@@ -52,12 +58,17 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     private void insertarCursos() {
-        addCurso(new Curso(contador,"15"));
-        addCurso(new Curso(contador,"13"));
-        addCurso(new Curso(contador,"25"));
-        addCurso(new Curso(contador,"23"));
-        addCurso(new Curso(contador,"33"));
-        addCurso(new Curso(contador,"35"));
+
+    }
+
+    private Curso rsRowToCurso(ResultSet rs) {
+        try {
+            int idCursada = rs.getInt("id_cursada");
+            String anioDivision = rs.getString("anio_division");
+            return new Curso(idCursada, anioDivision);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
 
