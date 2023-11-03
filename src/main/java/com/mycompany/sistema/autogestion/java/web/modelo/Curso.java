@@ -9,20 +9,20 @@ package com.mycompany.sistema.autogestion.java.web.modelo;
  * @author Francisco
  */
 public class Curso {
-    private int id_cursada;
+    private int idCursada;
     private String anioDivision;
 
     public Curso(int id_cursada, String anioDivision) {
-        this.id_cursada = id_cursada;
+        this.idCursada = id_cursada;
         this.anioDivision = anioDivision;
     }
 
-    public int getId_cursada() {
-        return id_cursada;
+    public int getIdCursada() {
+        return idCursada;
     }
 
-    public void setId_cursada(int id_cursada) {
-        this.id_cursada = id_cursada;
+    public void setIdCursada(int idCursada) {
+        this.idCursada = idCursada;
     }
 
     public String getAnioDivision() {

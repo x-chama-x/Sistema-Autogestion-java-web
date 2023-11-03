@@ -20,7 +20,7 @@ import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
  * @author Francisco
  */
 public class AlumnoServlet extends HttpServlet {
-    private DAO<Alumno, Integer> alumnoDAO;
+    private AlumnoDAO alumnoDAO;
     
     @Override
     public void init() throws ServletException {
@@ -57,8 +57,8 @@ public class AlumnoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("alumnos", alumnoDAO.listar());
-            request.getRequestDispatcher("/jsp/jsp_alumnos/Alumnos.jsp").forward(request, response);
+            request.setAttribute("alumnos", alumnoDAO.listar(Integer.parseInt(request.getParameter("idCurso"))));
+            request.getRequestDispatcher("/jsp/jsp_profesor/Alumnos.jsp").forward(request, response);
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }

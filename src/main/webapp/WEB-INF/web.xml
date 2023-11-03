@@ -23,7 +23,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
-        <url-pattern>/AlumnoServlet</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/AlumnoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

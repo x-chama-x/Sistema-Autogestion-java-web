@@ -23,26 +23,27 @@ public class CursoDAO implements DAO<Curso, Integer> {
     
     @Override
     public void insertar(Curso entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void modificar(Curso entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void eliminar(Curso id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
+    //obtener todos los cursos almacenados en la base de datos
     @Override
     public List<Curso> listar() {
         List<Curso> cursos = new LinkedList<>(); 
         String query = "SELECT * FROM cursada";
         try (Connection con = ConnectionPool.getInstance().getConnection();
              PreparedStatement ps = con.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+             ResultSet rs = ps.executeQuery()) { //ResultSet rs contiene los resultados de la consulta
             while (rs.next()) {
                 cursos.add(rsRowToCurso(rs));
             }
@@ -54,13 +55,11 @@ public class CursoDAO implements DAO<Curso, Integer> {
 
     @Override
     public Curso buscar(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    private void insertarCursos() {
 
-    }
-
+    //convertir una fila de un objeto ResultSet en un objeto de tipo Curso
     private Curso rsRowToCurso(ResultSet rs) {
         try {
             int idCursada = rs.getInt("id_cursada");
@@ -70,5 +69,7 @@ public class CursoDAO implements DAO<Curso, Integer> {
             throw new RuntimeException(ex);
         }
     }
+
 }
+
 
