@@ -16,8 +16,8 @@
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
                 <div class="formgroup">
-                    <label for="legajo" class="formlabel">Legajo: </label>
-                    <input type="text" id="legajo" name="legajo" class="forminput">
+                    <label for="mail" class="formlabel">Mail: </label>
+                    <input type="email" id="mail" name="mail" class="forminput">
                     <span class="formspan"></span>
                 </div>
                 <div class="formgroup"></div>
