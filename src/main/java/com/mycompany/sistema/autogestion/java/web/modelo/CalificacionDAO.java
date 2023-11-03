@@ -4,7 +4,11 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
-import java.util.ArrayList; 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,7 +16,58 @@ import java.util.List;
  * @author Manuel Botas
  */
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
-    private static int contador = 1;
+
+    @Override
+    public void insertar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void modificar(Calificacion entidad) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void eliminar(Calificacion id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Calificacion> listar() {
+        List<Calificacion> calificaciones = new LinkedList<>();
+        String query = "SELECT * FROM calificacion";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery()) {
+            while(rs.next()) {
+                calificaciones.add(rsRowToCalificacion(rs));
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return calificaciones;
+    }
+
+    private Calificacion rsRowToCalificacion(ResultSet rs) {
+        try {
+            int idCalificacion = rs.getInt("id_calificacion");
+            int nota = rs.getInt("nota");
+            int numExamen = rs.getInt("num_examen");
+            int idAlumno = rs.getInt("id_alumno");
+            int idMateria = rs.getInt("id_materia");
+            return new Calificacion(idCalificacion, nota, numExamen, idAlumno, idMateria);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    @Override
+    public Calificacion buscar(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
+    /*private static int contador = 1;
     private List<Calificacion> calificaciones;
 
     public CalificacionDAO() {
@@ -61,5 +116,5 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
         insertar(new Calificacion(contador, 8, 3, "Historia"));
         insertar(new Calificacion(contador, 7, 3, "Matemáticas"));
         insertar(new Calificacion(contador, 1, 2, "Matemáticas"));
-    }
+    }*/
 }
