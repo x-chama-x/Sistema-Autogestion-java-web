@@ -30,7 +30,7 @@ header{
     position: relative;
     border: 0.2em solid blue;
     width: 15em;
-    height: 15em;
+    height: fit-content;
     text-align: center;
     margin-left: 42%;
     top: 7em;
