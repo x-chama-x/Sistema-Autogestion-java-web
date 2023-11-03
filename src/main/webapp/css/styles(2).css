@@ -143,6 +143,20 @@ table{
 .tablelink{
     margin-left: 30%;
 }
+
+@media (max-width: 1920px)
+{
+    header{
+        /* Reverse the axis of the header, making it vertical. */
+        flex-direction: column;
+        
+        /* Align items to the begining (the left) of the header. */
+        align-items: flex-start;
+        font-size: smaller;
+        margin-left: 32%;
+        height: 6rem;
+    }
+}
 @media (max-width: 300px)
 {
     .navcontainer{
