@@ -13,6 +13,10 @@
         <servlet-name>AlumnoServlet</servlet-name>
         <servlet-class>com.mycompany.sistema.autogestion.java.web.controlador.AlumnoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MateriaServlet</servlet-name>
+        <servlet-class>com.mycompany.sistema.autogestion.java.web.controlador.MateriaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CalificacionServlet</servlet-name>
         <url-pattern>/jsp/jsp_alumnos/calificaciones</url-pattern>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/AlumnoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MateriaServlet</servlet-name>
+        <url-pattern>/jsp/jsp_alumnos/materias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
