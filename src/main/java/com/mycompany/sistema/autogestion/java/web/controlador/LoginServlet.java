@@ -8,8 +8,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 
 /**
  *
@@ -69,7 +73,28 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String mail = request.getParameter("mail");
+        String contrasenia = request.getParameter("contrasenia");
+        Usuario user = new UsuarioDAO().autenticar(mail, contrasenia);
+        if (user != null) {
+            HttpSession session = request.getSession();
+            session.setMaxInactiveInterval(60 * 60);
+            session.setAttribute("userLogueado", user);
+            /* Idea para no usar instanceof:
+             * Implementar un método abstracto en Usuario que devuelva un String con el rol del usuario.
+             */
+            if(user instanceof Alumno) {
+                request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
+            } else if(user instanceof Profesor) {
+                request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
+            } else if(user instanceof Admin) {
+                request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
+            }
+        } else {
+            request.setAttribute("hayError", true);
+            request.setAttribute("mensajeError", "Credenciales incorrectas");
+            doGet(request, response);
+        }
     }
 
     /**
