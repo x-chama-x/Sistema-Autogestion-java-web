@@ -33,7 +33,7 @@ public class MateriaDAO implements DAO<Materia, Integer> {
     }
 
     @Override
-    public List<Materia> listar() throws Exception {
+    public List<Materia> listar() {
         List<Materia> materias = new LinkedList<>();
         String query = "SELECT * FROM materia";
         try(Connection con = ConnectionPool.getInstance().getConnection();
