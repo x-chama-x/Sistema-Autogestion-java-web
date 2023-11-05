@@ -4,7 +4,12 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,7 +35,18 @@ public class MateriaDAO implements DAO<Materia, Integer> {
 
     @Override
     public List<Materia> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Materia> materias = new LinkedList<>();
+        String query = "SELECT * FROM materia";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery()){
+            while(rs.next()){
+                materias.add(rsRowToMateria(rs));
+            }
+        } catch(SQLException ex){
+            throw new RuntimeException(ex);
+        }
+        return materias;
     }
 
     @Override
