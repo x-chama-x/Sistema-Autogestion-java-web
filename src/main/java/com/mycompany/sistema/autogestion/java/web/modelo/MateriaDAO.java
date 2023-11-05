@@ -49,6 +49,16 @@ public class MateriaDAO implements DAO<Materia, Integer> {
         return materias;
     }
 
+    private Materia rsRowToMateria(ResultSet rs) {
+        try {
+            int idMateria = rs.getInt("id_materia");
+            String nombre = rs.getString("nombre");
+            return new Materia(idMateria, nombre);
+        } catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }
+    }
+
     @Override
     public Materia buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
