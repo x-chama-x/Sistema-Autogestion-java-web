@@ -14,15 +14,15 @@ public class Usuario {
     private String apellido;
     private String legajo;
     private String contrasenia;
-    private boolean estado;
+    private Estado estado;
 
-    public Usuario(int idUsuario, String nombre, String apellido, String legajo, String contrasenia) {
+    public Usuario(int idUsuario, String nombre, String apellido, String legajo, String contrasenia, Estado estado) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.legajo = legajo;
         this.contrasenia = contrasenia;
-        this.estado = true;
+        this.estado = estado;
     }
 
     public int getIdUsuario() {
@@ -65,11 +65,11 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public boolean isEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
     
