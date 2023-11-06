@@ -8,11 +8,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sistema Academico inicio de Sesion</title>
-        <link rel="stylesheet" href="css/styles(2).css">
+        <link rel="stylesheet" href="css/stylescomun.css">
+        <link rel="stylesheet" href="css/stylesmedia.css">
     </head>
     <body>
         <c:import url= "/header.jsp"/>
-        <form class="form" method="post">
+        <form action="login" class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
                 <div class="formgroup">

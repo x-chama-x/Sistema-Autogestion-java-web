@@ -1,60 +1,64 @@
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%-- 
+    Document   : Alumnos
+    Created on : 2 nov. 2023, 00:45:48
+    Author     : Francisco
+--%>
+ 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Academico Calificaciones</title>
+    <title>Lista de Alumnos del Curso</title>
     <link rel="stylesheet" href="../../css/stylescomun.css">
     <link rel="stylesheet" href="../../css/stylesmedia.css">
 </head>
-<body>
-    <c:import url= "/header.jsp"/>
 
+<body>
+    <c:import url="/header.jsp" />
     <table class="tablecontainer">
-        <!-- <caption class = "tablecaption">Calificaciones del alumno</caption> -->
+        <caption class="tablecaption">Alumnos del Curso</caption>
         <tr>
-            <th class = "tableth">
-                Materia
+            <th class="tableth">
+                Nombre
             </th>
-            <th class = "tableth">
-                Examen
+            <th class="tableth">
+                Apellido
             </th>
-            <th class = "tableth">
-                Nota
+            <th class="tableth">
+                Email
             </th>
         </tr>
+
         <c:choose>
-            <c:when test="${empty calificaciones}">
+            <c:when test="${empty alumnos}">
                 <tr>
-                    <td colspan="3" class="tabletd">
-                        No hay calificaciones
+                    <td class="tabletd" colspan="4">
+                        No hay alumnos
                     </td>
                 </tr>
             </c:when>
             <c:otherwise>
-                <c:forEach items="${calificaciones}" var="calificacion">
+                <c:forEach items="${alumnos}" var="alumno">
                     <tr>
                         <td class="tabletd">
-                            ${calificacion.idMateria}
+                            ${alumno.nombre}
                         </td>
                         <td class="tabletd">
-                            ${calificacion.numExamen}
+                            ${alumno.apellido}
                         </td>
                         <td class="tabletd">
-                            ${calificacion.nota}
+                            ${alumno.email}
                         </td>
                     </tr>
                 </c:forEach>
             </c:otherwise>
         </c:choose>
     </table>
-
-    <a class = "asalir" href="./MenuAlumno.jsp">Salir</a>
+    <a class="asalir" href="./MenuProfesor.jsp">Salir</a>
 </body>
+
 </html>
