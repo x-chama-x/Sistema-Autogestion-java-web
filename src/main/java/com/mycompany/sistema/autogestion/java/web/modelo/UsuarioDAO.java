@@ -4,6 +4,10 @@
  */
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -41,5 +45,38 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscar'");
     }
+
+    public Usuario autenticar(String mail, String contrasenia) {
+        Usuario u = null;
+        String query = "SELECT * FROM usuario WHERE email = ? AND contraseña = ?";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, mail);
+            ps.setString(2, contrasenia);
+            try(ResultSet rs = ps.executeQuery()) {
+                if(rs.next()) {
+                    u = rsRowToUsuario(rs);
+                }
+            } catch(SQLException ex) {
+                throw new RuntimeException();
+            }
+        } catch(SQLException ex) {
+            throw new RuntimeException();
+        }
+        return u;
+    }
     
+    private Usuario rsRowToUsuario(ResultSet rs) {
+        try {
+            int idUsuario = rs.getInt("id_usuario");
+            String nombre = rs.getString("nombre");
+            String apellido = rs.getString("apellido");
+            String email = rs.getString("email");
+            String contrasenia = rs.getString("contraseña");
+            String estado = rs.getString("estado");
+            return new Usuario(idUsuario, nombre, apellido, email, contrasenia, estado);
+        } catch(SQLException ex) {
+            throw new RuntimeException();
+        }
+    }
 }
