@@ -11,6 +11,22 @@
         height: 6rem;
     }
 }
+@media (max-width: 1360px)
+{
+    header{
+        /* Reverse the axis of the header, making it vertical. */
+        flex-direction: column;
+        
+        /* Align items to the begining (the left) of the header. */
+        align-items: flex-start;
+        font-size: smaller;
+        margin-left: 27%;
+        height: 6rem;
+    }
+    .navcontainer{
+        margin-left: 41%;
+    }
+}
 @media (max-width: 300px)
 {
     .navcontainer{
