@@ -13,7 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Alumnos del Curso</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/stylescomun.css">
+    <link rel="stylesheet" href="../../css/stylesmedia.css">
 </head>
 
 <body>
