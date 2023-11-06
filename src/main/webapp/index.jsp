@@ -12,7 +12,7 @@
     </head>
     <body>
         <c:import url= "/header.jsp"/>
-        <form class="form" method="post">
+        <form action="login" class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
                 <div class="formgroup">
