@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String mail = request.getParameter("mail");
         String contrasenia = request.getParameter("contrasenia");
-        Usuario user = new UsuarioDAO().autenticar(mail, contrasenia);
+        Usuario user = new UsuarioDAO().buscar(mail, contrasenia);
         if (user != null) {
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(60 * 60);

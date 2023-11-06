@@ -46,7 +46,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         throw new UnsupportedOperationException("Unimplemented method 'buscar'");
     }
 
-    public Usuario autenticar(String mail, String contrasenia) {
+    public Usuario buscar(String mail, String contrasenia) {
         Usuario u = null;
         String query = "SELECT * FROM usuario WHERE email = ? AND contraseña = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
