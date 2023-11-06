@@ -31,9 +31,6 @@
             <th class="tableth">
                 Email
             </th>
-            <th class="tableth">
-                Estado
-            </th>
         </tr>
 
         <c:choose>
@@ -55,9 +52,6 @@
                         </td>
                         <td class="tabletd">
                             ${alumno.email}
-                        </td>
-                        <td class="tabletd">
-                            ${alumno.estado}
                         </td>
                     </tr>
                 </c:forEach>
