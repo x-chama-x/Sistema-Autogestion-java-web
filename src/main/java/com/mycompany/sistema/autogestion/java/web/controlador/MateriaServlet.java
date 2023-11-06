@@ -4,31 +4,30 @@
  */
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
-
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
-import com.mycompany.sistema.autogestion.java.web.modelo.Curso;
-import com.mycompany.sistema.autogestion.java.web.modelo.CursoDAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.Materia;
+import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
- * @author Francisco
+ * @author manue
  */
-public class CursoServlet extends HttpServlet {
-
-    private DAO<Curso, Integer> cursoDAO;
+public class MateriaServlet extends HttpServlet {
+    
+    private DAO<Materia,Integer> materiaDAO;
     
     @Override
     public void init() throws ServletException {
-        cursoDAO = new CursoDAO();
+        materiaDAO = new MateriaDAO();
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,10 +45,10 @@ public class CursoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CursoServlet</title>");            
+            out.println("<title>Servlet MateriaServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CursoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet MateriaServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -67,12 +66,12 @@ public class CursoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                try {
-                    request.setAttribute("cursos", cursoDAO.listar());
-                    request.getRequestDispatcher("/jsp/jsp_profesor/Cursos.jsp").forward(request, response);
-                } catch (Exception e) {
-                    response.sendError(500, e.getMessage());
-                }
+        try {
+            request.setAttribute("materias", materiaDAO.listar());
+            request.getRequestDispatcher("/jsp/jsp_alumnos/Materias.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendError(500, e.getMessage());
+        }
     }
 
     /**

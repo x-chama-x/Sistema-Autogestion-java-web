@@ -15,20 +15,16 @@ public class CursoDAO implements DAO<Curso, Integer> {
     private static int contador = 1;
     private List <Curso> cursos;
 
-    public CursoDAO(List<Curso> cursos) {
+    public CursoDAO() {
         this.cursos = new ArrayList<>();
         insertarCursos();
     }
-
-    public void addCurso(Curso curso) {
+    
+    @Override
+    public void insertar(Curso curso) {
         curso.setId_cursada(contador);
         cursos.add(curso);
         contador++;
-    }
-    
-    @Override
-    public void insertar(Curso entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -42,8 +38,8 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     @Override
-    public List<Curso> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Curso> listar() {
+        return new ArrayList<>(this.cursos);
     }
 
     @Override
@@ -52,12 +48,12 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
 
     private void insertarCursos() {
-        addCurso(new Curso(contador,"15"));
-        addCurso(new Curso(contador,"13"));
-        addCurso(new Curso(contador,"25"));
-        addCurso(new Curso(contador,"23"));
-        addCurso(new Curso(contador,"33"));
-        addCurso(new Curso(contador,"35"));
+        insertar(new Curso(contador,"15"));
+        insertar(new Curso(contador,"13"));
+        insertar(new Curso(contador,"25"));
+        insertar(new Curso(contador,"23"));
+        insertar(new Curso(contador,"33"));
+        insertar(new Curso(contador,"35"));
     }
 }
 
