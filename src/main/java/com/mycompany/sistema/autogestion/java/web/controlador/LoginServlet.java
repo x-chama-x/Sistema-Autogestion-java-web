@@ -80,25 +80,26 @@ public class LoginServlet extends HttpServlet {
         Usuario user = uDao.buscar(mail, contrasenia);
         if (user != null) {
             String rol = uDao.buscarRol(user.getIdUsuario());
-            HttpSession session = request.getSession();
-            session.setMaxInactiveInterval(60 * 60);
-            session.setAttribute("userLogueado", user);
-            session.setAttribute("rolUser", rol);
-            switch (rol) {
-                case "administrador":
-                    request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
-                    break;
-                case "profesor":
-                    request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
-                    break;
-                case "alumno":
-                    request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
-                    break;
-                default:
-                    request.setAttribute("hayError", true);
-                    request.setAttribute("mensajeError", "Rol no reconocido");
-                    doGet(request, response);
-                    break;
+            if(rol != null) {
+                HttpSession session = request.getSession();
+                session.setMaxInactiveInterval(60 * 60);
+                session.setAttribute("userLogueado", user);
+                session.setAttribute("rolUser", rol);
+                switch (rol) {
+                    case "administrador":
+                        request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
+                        break;
+                    case "profesor":
+                        request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
+                        break;
+                    case "alumno":
+                        request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
+                        break;
+                }
+            } else {
+                request.setAttribute("hayError", true);
+                request.setAttribute("mensajeError", "Rol no reconocido");
+                doGet(request, response);
             }
         } else {
             request.setAttribute("hayError", true);
