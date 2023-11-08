@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher(request.getContextPath()).forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**
@@ -85,15 +85,19 @@ public class LoginServlet extends HttpServlet {
                 session.setMaxInactiveInterval(60 * 60);
                 session.setAttribute("userLogueado", user);
                 session.setAttribute("rolUser", rol);
+                // TODO Revisar por qué se rompe CSS al usar getRequestDispatcher
                 switch (rol) {
                     case "administrador":
-                        request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
+                        response.sendRedirect(request.getContextPath() + "/jsp/jsp_admin/MenuAdmin.jsp");
+                        // request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
                         break;
                     case "profesor":
-                        request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
+                        response.sendRedirect(request.getContextPath() + "/jsp/jsp_profesor/MenuProfesor.jsp");
+                        // request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
                         break;
                     case "alumno":
-                        request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
+                        response.sendRedirect(request.getContextPath() + "/jsp/jsp_alumnos/MenuAlumno.jsp");
+                        // request.getRequestDispatcher("/jsp/jsp_alumnos/MenuAlumno.jsp").forward(request, response);
                         break;
                 }
             } else {

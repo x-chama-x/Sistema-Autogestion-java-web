@@ -108,7 +108,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             String apellido = rs.getString("apellido");
             String email = rs.getString("email");
             String contrasenia = rs.getString("contraseña");
-            Estado estado = Estado.valueOf(rs.getString("estado"));
+            Estado estado = Estado.valueOf(rs.getString("estado").toUpperCase());
             return new Usuario(idUsuario, nombre, apellido, email, contrasenia, estado);
         } catch(SQLException ex) {
             throw new RuntimeException(ex);

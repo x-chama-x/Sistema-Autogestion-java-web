@@ -16,6 +16,10 @@
         <form action="login" class="form" method="post">
             <h4 class = formheader>Inicio de Sesion</h4>
             <div class="container">
+                <%-- TODO mostrar el mensaje correctamente --%>
+                <c:if test="${hayError}">
+                        <p>${mensajeError}</p>
+                </c:if>
                 <div class="formgroup">
                     <label for="mail" class="formlabel">Mail: </label>
                     <input type="email" id="mail" name="mail" class="forminput">

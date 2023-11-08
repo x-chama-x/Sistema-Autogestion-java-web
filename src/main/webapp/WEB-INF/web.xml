@@ -6,7 +6,7 @@
     </filter>
     <filter-mapping>
         <filter-name>auth-filter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/jsp/*</url-pattern>
     </filter-mapping>
     <servlet>
         <description>Controlador de la lista de calificaciones del alumno</description>
@@ -55,7 +55,9 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/LogoutServlet</url-pattern>
+        <url-pattern>/jsp/jsp_alumnos/logout</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/logout</url-pattern>
+        <url-pattern>/jsp/jsp_admin/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

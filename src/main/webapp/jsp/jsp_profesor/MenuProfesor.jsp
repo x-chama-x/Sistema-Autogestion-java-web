@@ -19,7 +19,7 @@
         <h4 class="navh4">CHIMINELLI, Francisco Fabian</h4>
         <a href="CursoServlet" class="nava">Gestionar cursos</a>
         <a href="http://" class="nava">Gestiionar Calificaciones</a>
-        <a href="../../index.jsp" class="nava">Salir</a>
+        <a href="logout" class="nava">Salir</a>
     </nav>
 </body>
 </html>

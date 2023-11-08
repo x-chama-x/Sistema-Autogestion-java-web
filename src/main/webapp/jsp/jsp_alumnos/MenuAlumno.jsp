@@ -18,7 +18,7 @@
         <p>Curso: 1 año 2da division</p>
         <a href="materias" class="nava">Materias</a>
         <a href="calificaciones" class="nava">Calificaciones</a>
-        <a href="../../index.jsp" class="nava">Salir</a>
+        <a href="logout" class="nava">Salir</a>
     </nav>
 </body>
 </html>
