@@ -29,13 +29,13 @@ public class AuthFilter implements Filter{
         String requestURI = httpReq.getRequestURI();
         String contextPath = httpReq.getContextPath();
         if(!requestURI.equals(contextPath)) {
-            if(session != null && session.getAttribute("userLogueado") != null) {
-                fc.doFilter(sr, sr1);
-            } else {
-                httpReq.setAttribute("hayError", true);
-                httpReq.setAttribute("mensajeError", "Debe iniciar sesión");
-                httpResp.sendRedirect(contextPath);
-            }
+            fc.doFilter(sr, sr1);
+        } else if(session != null && session.getAttribute("userLogueado") != null) {
+            fc.doFilter(sr, sr1);
+        } else {
+            httpReq.setAttribute("hayError", true);
+            httpReq.setAttribute("mensajeError", "Debe iniciar sesión");
+            httpResp.sendRedirect(contextPath);
         }
     }
     
