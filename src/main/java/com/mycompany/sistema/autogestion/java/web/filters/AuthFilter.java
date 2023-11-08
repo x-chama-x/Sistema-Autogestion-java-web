@@ -26,11 +26,8 @@ public class AuthFilter implements Filter{
         HttpServletRequest httpReq = (HttpServletRequest) sr;
         HttpServletResponse httpResp = (HttpServletResponse) sr1;
         HttpSession session = httpReq.getSession();
-        String requestURI = httpReq.getRequestURI();
         String contextPath = httpReq.getContextPath();
-        if(!requestURI.equals(contextPath)) {
-            fc.doFilter(sr, sr1);
-        } else if(session != null && session.getAttribute("userLogueado") != null) {
+        if(session != null && session.getAttribute("userLogueado") != null) {
             fc.doFilter(sr, sr1);
         } else {
             httpReq.setAttribute("hayError", true);
