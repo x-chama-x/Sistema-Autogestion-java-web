@@ -81,7 +81,10 @@ public class LoginServlet extends HttpServlet {
             session.setMaxInactiveInterval(60 * 60);
             session.setAttribute("userLogueado", user);
             /* Idea para no usar instanceof:
-             * Implementar un método abstracto en Usuario que devuelva un String con el rol del usuario.
+             * Usar una consulta en la base de datos para obtener la tabla a la que pertenece el usuario, lo que equivale al rol.
+             * Se obtiene el resultado como un String y se guarda en una variable.
+             * Se usa un switch para redirigir a la página correspondiente.
+             * Se setea un atributo de la sesión con el rol del usuario.
              */
             if(user instanceof Alumno) {
                 request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
