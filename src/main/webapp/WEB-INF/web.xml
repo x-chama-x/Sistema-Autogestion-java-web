@@ -55,7 +55,9 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
+        <url-pattern>/jsp/jsp_alumnos/logout</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/logout</url-pattern>
+        <url-pattern>/jsp/jsp_admin/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
