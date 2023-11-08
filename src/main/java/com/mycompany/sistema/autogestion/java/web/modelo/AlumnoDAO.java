@@ -21,7 +21,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     }
     
     public void addAlumno(Alumno alumno){
-        alumno.setId_usuario(contador);
+        alumno.setIdUsuario(contador);
         alumno.setId_alumno(contador);
         alumnos.add(alumno);
         contador++;  
@@ -52,10 +52,10 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     private void insertarAlumnos() {
-        addAlumno(new Alumno(contador, contador, "Juan", "Pérez", "juan@example.com"));
-        addAlumno(new Alumno(contador, contador, "María", "Gómez", "maria@example.com"));
-        addAlumno(new Alumno(contador, contador, "Carlos", "Rodríguez", "carlos@example.com"));
-        addAlumno(new Alumno(contador, contador, "Sara", "Torres", "saratorres@example.com"));
-        addAlumno(new Alumno(contador, contador, "Andrés", "Ramírez", "andresramirez@example.com"));
+        addAlumno(new Alumno(contador, contador, "Juan", "Pérez", "juan@example.com","contrasenia1",Estado.ACTIVO));
+        addAlumno(new Alumno(contador, contador, "María", "Gómez", "maria@example.com","contrasenia2",Estado.ACTIVO));
+        addAlumno(new Alumno(contador, contador, "Carlos", "Rodríguez", "carlos@example.com","contrasenia3",Estado.ACTIVO));
+        addAlumno(new Alumno(contador, contador, "Sara", "Torres", "saratorres@example.com","contrasenia4",Estado.ACTIVO));
+        addAlumno(new Alumno(contador, contador, "Andrés", "Ramírez", "andresramirez@example.com","contrasenia5",Estado.ACTIVO));
     }
 }
