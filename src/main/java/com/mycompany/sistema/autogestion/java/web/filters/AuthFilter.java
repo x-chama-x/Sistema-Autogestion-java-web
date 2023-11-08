@@ -26,12 +26,16 @@ public class AuthFilter implements Filter{
         HttpServletRequest httpReq = (HttpServletRequest) sr;
         HttpServletResponse httpResp = (HttpServletResponse) sr1;
         HttpSession session = httpReq.getSession();
-        if(session != null && session.getAttribute("userLogueado") != null){
-            fc.doFilter(sr, sr1);
-        } else {
-            httpReq.setAttribute("hayError", true);
-            httpReq.setAttribute("mensajeError", "Debe iniciar sesión");
-            httpResp.sendRedirect(httpReq.getContextPath());
+        String requestURI = httpReq.getRequestURI();
+        String contextPath = httpReq.getContextPath();
+        if(!requestURI.equals(contextPath)) {
+            if(session != null && session.getAttribute("userLogueado") != null) {
+                fc.doFilter(sr, sr1);
+            } else {
+                httpReq.setAttribute("hayError", true);
+                httpReq.setAttribute("mensajeError", "Debe iniciar sesión");
+                httpResp.sendRedirect(contextPath);
+            }
         }
     }
     
