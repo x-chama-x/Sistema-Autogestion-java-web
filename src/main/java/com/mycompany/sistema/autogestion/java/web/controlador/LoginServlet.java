@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
                         request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
                         break;
                     case "alumno":
-                        request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
+                        request.getRequestDispatcher("/jsp/jsp_alumnos/MenuAlumno.jsp").forward(request, response);
                         break;
                 }
             } else {
