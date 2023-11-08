@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
 import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 
 /**
@@ -75,23 +76,29 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String mail = request.getParameter("mail");
         String contrasenia = request.getParameter("contrasenia");
-        Usuario user = new UsuarioDAO().buscar(mail, contrasenia);
+        UsuarioDAO uDao = new UsuarioDAO();
+        Usuario user = uDao.buscar(mail, contrasenia);
         if (user != null) {
+            String rol = uDao.buscarRol(user.getIdUsuario());
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(60 * 60);
             session.setAttribute("userLogueado", user);
-            /* Idea para no usar instanceof:
-             * Usar una consulta en la base de datos para obtener la tabla a la que pertenece el usuario, lo que equivale al rol.
-             * Se obtiene el resultado como un String y se guarda en una variable.
-             * Se usa un switch para redirigir a la página correspondiente.
-             * Se setea un atributo de la sesión con el rol del usuario.
-             */
-            if(user instanceof Alumno) {
-                request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
-            } else if(user instanceof Profesor) {
-                request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
-            } else if(user instanceof Admin) {
-                request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
+            session.setAttribute("rolUser", rol);
+            switch (rol) {
+                case "administrador":
+                    request.getRequestDispatcher("/jsp/jsp_admin/MenuAdmin.jsp").forward(request, response);
+                    break;
+                case "profesor":
+                    request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request, response);
+                    break;
+                case "alumno":
+                    request.getRequestDispatcher("/jsp/jsp_alumno/MenuAlumno.jsp").forward(request, response);
+                    break;
+                default:
+                    request.setAttribute("hayError", true);
+                    request.setAttribute("mensajeError", "Rol no reconocido");
+                    doGet(request, response);
+                    break;
             }
         } else {
             request.setAttribute("hayError", true);
