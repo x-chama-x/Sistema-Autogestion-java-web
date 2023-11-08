@@ -11,8 +11,8 @@ package com.mycompany.sistema.autogestion.java.web.modelo;
 public class Alumno extends Usuario {
     private int id_alumno;
 
-    public Alumno(int id_alumno, int id_usuario, String nombre, String apellido, String email) {
-        super(id_usuario, nombre, apellido, email);
+    public Alumno(int id_alumno, int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
+        super(idUsuario, nombre, apellido, email, contrasenia, estado);
         this.id_alumno = id_alumno;
     }
 
