@@ -58,10 +58,10 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
                     u = rsRowToUsuario(rs);
                 }
             } catch(SQLException ex) {
-                throw new RuntimeException();
+                throw new RuntimeException(ex);
             }
         } catch(SQLException ex) {
-            throw new RuntimeException();
+            throw new RuntimeException(ex);
         }
         return u;
     }
@@ -76,7 +76,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             Estado estado = Estado.valueOf(rs.getString("estado"));
             return new Usuario(idUsuario, nombre, apellido, email, contrasenia, estado);
         } catch(SQLException ex) {
-            throw new RuntimeException();
+            throw new RuntimeException(ex);
         }
     }
 }
