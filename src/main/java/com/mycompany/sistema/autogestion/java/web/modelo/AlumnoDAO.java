@@ -22,7 +22,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     
     public void addAlumno(Alumno alumno){
         alumno.setIdUsuario(contador);
-        alumno.setId_alumno(contador);
+        alumno.setIdAlumno(contador);
         alumnos.add(alumno);
         contador++;  
     }
