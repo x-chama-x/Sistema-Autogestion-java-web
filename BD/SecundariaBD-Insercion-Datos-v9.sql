@@ -32,12 +32,34 @@ VALUES
 ('Alejandro', 'Aguilar', 'alejandro.aguilar@gmail.com', 'contrasenia29', 'activo'),
 ('Lorena', 'Valencia', 'lorena.valencia@gmail.com', 'contrasenia30', 'activo');
 
+-- Insertar 4 cursos
+INSERT INTO cursada (anio_division)
+VALUES
+    ('1-5'),
+    ('1-6'),
+    ('2-3'),
+    ('2-5');
 
--- Asociar los alumnos a usuarios existentes
-INSERT INTO alumno (id_usuario)
-SELECT id_usuario FROM usuario
-WHERE contraseña IN ('contrasenia1', 'contrasenia2', 'contrasenia3', 'contrasenia4', 'contrasenia5', 'contrasenia6', 'contrasenia7', 'contrasenia8', 'contrasenia9', 'contrasenia10', 'contrasenia11', 'contrasenia12', 'contrasenia13', 'contrasenia14', 'contrasenia15', 'contrasenia16', 'contrasenia17', 'contrasenia18', 'contrasenia19', 'contrasenia20', 'contrasenia21', 'contrasenia22', 'contrasenia23', 'contrasenia24', 'contrasenia25', 'contrasenia26', 'contrasenia27', 'contrasenia28', 'contrasenia29', 'contrasenia30');
+-- Asociar los alumnos a usuarios y cursos existentes
+INSERT INTO alumno (id_usuario, id_cursada)
+SELECT u.id_usuario, c.id_cursada FROM usuario u, cursada c
+WHERE u.contraseña IN ('contrasenia1', 'contrasenia2', 'contrasenia3', 'contrasenia4', 'contrasenia5', 'contrasenia6', 'contrasenia7', 'contrasenia8')
+AND c.anio_division IN ('1-5');
 
+INSERT INTO alumno (id_usuario, id_cursada)
+SELECT u.id_usuario, c.id_cursada FROM usuario u, cursada c
+WHERE u.contraseña IN ('contrasenia9', 'contrasenia10', 'contrasenia11', 'contrasenia12', 'contrasenia13', 'contrasenia14', 'contrasenia15', 'contrasenia16')
+AND c.anio_division IN ('1-6');
+
+INSERT INTO alumno (id_usuario, id_cursada)
+SELECT u.id_usuario, c.id_cursada FROM usuario u, cursada c
+WHERE u.contraseña IN ('contrasenia17', 'contrasenia18', 'contrasenia19', 'contrasenia20', 'contrasenia21', 'contrasenia22', 'contrasenia23', 'contrasenia24')
+AND c.anio_division IN ('2-3');
+
+INSERT INTO alumno (id_usuario, id_cursada)
+SELECT u.id_usuario, c.id_cursada FROM usuario u, cursada c
+WHERE u.contraseña IN ('contrasenia25', 'contrasenia26', 'contrasenia27', 'contrasenia28', 'contrasenia29', 'contrasenia30')
+AND c.anio_division IN ('2-5');
 
 -- Insertar 15 profesores
 INSERT INTO usuario (nombre, apellido, email, contraseña, estado)
@@ -58,12 +80,10 @@ VALUES
 ('Isabel', 'Luna', 'profesor14@gmail.com', 'contrasenia44', 'activo'),
 ('David', 'Molina', 'profesor15@gmail.com', 'contrasenia45', 'activo');
 
-
 -- Asociar los profesores a usuarios existentes
 INSERT INTO profesor (id_usuario)
 SELECT id_usuario FROM usuario
 WHERE contraseña IN ('contrasenia31', 'contrasenia32', 'contrasenia33', 'contrasenia34', 'contrasenia35', 'contrasenia36', 'contrasenia37', 'contrasenia38', 'contrasenia39', 'contrasenia40', 'contrasenia41', 'contrasenia42', 'contrasenia43', 'contrasenia44', 'contrasenia45');
-
 
 -- Insertar 2 administradores
 INSERT INTO usuario (nombre, apellido, email, contraseña, estado)
@@ -89,20 +109,30 @@ VALUES
     ('Educación Artística'),
     ('Tecnología'),
     ('Formación Ética y Ciudadana');
-    
 
--- Insertar 3 cursos
-INSERT INTO cursada (id_cursada, anio_division)
+-- Insertar relaciones entre cursos y profesores
+INSERT INTO `secundariabd`.`profesor/cursada` (`id_cursada`, `id_profesor`)
 VALUES
-    (1, '1-5'),
-    (2, '1-6'),
-    (3, '2-3'),
-    (4, '2-5');
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 4),
+    (2, 5),
+    (2, 6),
+    (2, 7),
+    (3, 8),
+    (3, 9),
+    (3, 10),
+    (3, 11),
+    (4, 12),
+    (4, 13),
+    (4, 14),
+    (4, 15);
 
 -- Insertar relaciones entre cursos y materias
 INSERT INTO `secundariabd`.`cursada/materia` (`id_cursada`, `id_materia`)
 VALUES
-    (1,1),
+    (1, 1),
     (1, 2),
     (1, 3),
     (1, 4),
