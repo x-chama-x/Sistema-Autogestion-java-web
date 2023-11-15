@@ -9,12 +9,19 @@ import java.io.PrintWriter;
 
 import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.ConnectionPool;
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -23,7 +30,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class CalificacionServlet extends HttpServlet {
 
-    private DAO<Calificacion, Integer> calificacionDAO;
+    private CalificacionDAO calificacionDAO;
 
     @Override
     public void init() throws ServletException {
@@ -67,13 +74,30 @@ public class CalificacionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            HttpSession session = request.getSession();
         try {
-            request.setAttribute("calificaciones", calificacionDAO.listar());
-            request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
+            if(session.getAttribute("rolUser").equals("alumno")) {
+                request.setAttribute("calificaciones", calificacionDAO.listar());
+                request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
+            } else if(session.getAttribute("rolUser").equals("profesor")) {
+                int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
+                int idProfesor = calificacionDAO.obtenerIdProfesorPorIdUsuario(idUsuario);
+                request.setAttribute("calificaciones", calificacionDAO.listar(idProfesor));
+
+                request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);
+            }
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }
     }
+    
+    // método para obtener el ID del usuario desde la sesión
+    private int obtenerIdUsuarioDesdeSesion(HttpSession session) {
+        // Asumo que el ID del usuario está almacenado en la sesión con el nombre "user"
+        Usuario usuario = (Usuario) session.getAttribute("userLogueado");
+        return usuario.getIdUsuario();
+    }
+
 
     /**
      * Handles the HTTP <code>POST</code> method.
