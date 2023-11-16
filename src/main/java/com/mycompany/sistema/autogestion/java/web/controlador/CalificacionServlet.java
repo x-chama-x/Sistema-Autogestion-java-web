@@ -7,14 +7,17 @@ package com.mycompany.sistema.autogestion.java.web.controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -23,7 +26,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class CalificacionServlet extends HttpServlet {
 
-    private DAO<Calificacion, Integer> calificacionDAO;
+    private CalificacionDAO calificacionDAO;
 
     @Override
     public void init() throws ServletException {
@@ -68,11 +71,24 @@ public class CalificacionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("calificaciones", calificacionDAO.listar());
-            request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
+            int idUsuario = getIdUsuarioBySession(request);
+            int idAlumno = getIdAlumnoFromIdUsuario(idUsuario);
+            request.setAttribute("calificaciones", calificacionDAO.listar(idAlumno));
+            request.getRequestDispatcher("/jsp/jsp_alumnos/materiasCalif").forward(request, response);
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }
+    }
+
+    private int getIdUsuarioBySession(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Usuario userLogueado = (Usuario) session.getAttribute("userLogueado");
+        return userLogueado.getIdUsuario();
+    }
+
+    private int getIdAlumnoFromIdUsuario(int idUsuario) {
+        AlumnoDAO aDao = new AlumnoDAO();
+        return aDao.buscar(idUsuario).getIdAlumno();
     }
 
     /**
