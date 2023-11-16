@@ -18,7 +18,7 @@
         <!-- <caption class = "tablecaption">Cursada del alumno</caption> -->
         <tr>
             <th class = "tableth">
-                mostrar inforacion
+                mostrar informacion
             </th>
         </tr>
         <tr>
