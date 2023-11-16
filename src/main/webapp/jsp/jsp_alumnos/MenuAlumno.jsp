@@ -14,7 +14,7 @@
 <body>
     <c:import url= "/header.jsp"/>
     <nav class="navcontainer">
-        <h4 class="navh4">${Usuario.apellido},${Usuario.nombre}</h4>
+        <h4 class="navh4">${userLogueado.apellido}, ${userLogueado.nombre}</h4>
         <p>Curso: 1 año 2da division</p>
         <a href="materias" class="nava">Materias</a>
         <a href="calificaciones" class="nava">Calificaciones</a>

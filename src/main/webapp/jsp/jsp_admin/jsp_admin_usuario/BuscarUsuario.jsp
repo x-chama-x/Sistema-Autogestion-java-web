@@ -1,3 +1,7 @@
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,18 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sistema Academico Administrar usuarios</title>
         <link rel="stylesheet" href="../../../css/stylescomun.css">
-    <link rel="stylesheet" href="../../../css/stylesmedia.css">
+        <link rel="stylesheet" href="../../../css/stylesmedia.css">
     </head>
     <body>
-        <header>
-            <div class="logo">
-                <img src="../../../img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-                <h1 class="logotext">Escuela Tecnica N° 28 Republica Francesa</h1>
-                <img src="../../../img/escudo.jpg" alt="escudo de la escuela"class="logoimg">
-            </div>
-        </header>
-        <br>
-        <hr>
+        <c:import url= "/header.jsp"/>
         <form class="form" method="post">
             <h4 class = formheader>Administrar Usuarios</h4>
             <div class="container">
@@ -29,7 +25,7 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a href="../MenuAdmin.html" class="asalir"> salir</a>
-        <a href="./MostrarUsuario.html">mostrarUser</a>
+        <a href="../MenuAdmin.jsp" class="asalir"> salir</a>
+        <a href="./MostrarUsuario.jsp">mostrarUser</a>
     </body>
 </html>
