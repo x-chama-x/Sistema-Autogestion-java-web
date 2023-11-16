@@ -7,8 +7,6 @@ import java.io.PrintWriter;
 import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
-import com.mycompany.sistema.autogestion.java.web.modelo.ConnectionPool;
-import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.ProfesorDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
@@ -19,11 +17,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
 
@@ -100,6 +93,7 @@ public class CalificacionServlet extends HttpServlet {
         }
     }
     
+    // TODO Agregar documentación
     // método para obtener el ID del usuario desde la sesión
     private int obtenerIdUsuarioDesdeSesion(HttpSession session) {
         // Asumo que el ID del usuario está almacenado en la sesión con el nombre "user"
