@@ -35,7 +35,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     // obtener todos los alumnos almacenados en la BD
     @Override
     public List<Alumno> listar() {
-        List <Alumno> alumnos = new LinkedList(); 
+        List <Alumno> alumnos = new LinkedList<>(); 
         String query = "SELECT * FROM alumno a\n" + "INNER JOIN usuario u ON u.id_usuario = a.id_usuario";
         try(Connection con = ConnectionPool.getInstance().getConnection();
                 PreparedStatement ps = con.prepareStatement(query);
