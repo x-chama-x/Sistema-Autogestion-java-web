@@ -20,6 +20,14 @@ public class Calificacion {
         this.idMateria = idMateria;
     }
 
+    public Calificacion(int nota, int numExamen, int idAlumno, int idMateria) {
+        this.nota = nota;
+        this.numExamen = numExamen;
+        this.idAlumno = idAlumno;
+        this.idMateria = idMateria;
+    }
+    
+
     public int getIdCalificacion() {
         return idCalificacion;
     }

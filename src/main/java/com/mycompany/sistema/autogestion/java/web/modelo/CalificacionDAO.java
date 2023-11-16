@@ -18,8 +18,23 @@ import java.util.List;
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
 
     @Override
-    public void insertar(Calificacion entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void insertar(Calificacion entidad) {
+        String query = "INSERT INTO calificacion (nota, num_examen, id_alumno, id_materia)"+
+        "VALUES (?, ?, ?, ?)";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+                PreparedStatement ps = con.prepareStatement(query)){
+            ps.setInt(1, entidad.getNota());
+            ps.setInt(2, entidad.getNumExamen());
+            ps.setInt(3, entidad.getIdAlumno());
+            ps.setInt(4, entidad.getIdMateria());
+            try (ResultSet rs = ps.executeQuery()){
+                
+            } catch (SQLException ex){
+                throw new RuntimeException (ex); 
+            }
+        } catch (SQLException ex){
+            throw new RuntimeException (ex); 
+        }
     }
 
     @Override
@@ -47,6 +62,30 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
         }
         return calificaciones;
     }
+    
+    //obtener las calificaciones de los alumnos de los cursos administrados por un profesor específico
+    public List<Calificacion> listar(int idProfesor) {
+        List<Calificacion> calificaciones = new LinkedList<>();
+        String query = "SELECT c.* " +
+                       "FROM calificacion c " +
+                       "INNER JOIN alumno a ON c.id_alumno = a.id_alumno " +
+                       "INNER JOIN cursada cu ON a.id_cursada = cu.id_cursada " +
+                       "INNER JOIN `profesor/cursada` pc ON cu.id_cursada = pc.id_cursada " +
+                       "WHERE pc.id_profesor = ?";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, idProfesor);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    calificaciones.add(rsRowToCalificacion(rs));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return calificaciones;
+    }
+
 
     public List<Calificacion> listar(int idAlumno) {
         List<Calificacion> calificaciones = new LinkedList<>();
@@ -85,6 +124,40 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     @Override
     public Calificacion buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+        // método en tu clase ProfesorDAO o donde manejes las operaciones relacionadas con profesores
+    public int obtenerIdProfesorPorIdUsuario(int idUsuario) {
+        int idProfesor = -1; // Valor por defecto si no se encuentra el profesor
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = ConnectionPool.getInstance().getConnection();
+            String query = "SELECT id_profesor FROM profesor WHERE id_usuario = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idUsuario);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idProfesor = rs.getInt("id_profesor");
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            // Cierra las conexiones
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
+        return idProfesor;
     }
     
     

@@ -36,6 +36,8 @@
     <servlet-mapping>
         <servlet-name>CalificacionServlet</servlet-name>
         <url-pattern>/jsp/jsp_alumnos/calificaciones</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/calificacion</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/addCalificacion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CursoServlet</servlet-name>
@@ -43,7 +45,8 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
-        <url-pattern>/AlumnoServlet</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/AlumnoCali</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/AlumnoCurso</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -59,6 +62,7 @@
         <servlet-name>MateriaServlet</servlet-name>
         <url-pattern>/jsp/jsp_alumnos/materiasCalif</url-pattern>
         <url-pattern>/jsp/jsp_alumnos/materias</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/materias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

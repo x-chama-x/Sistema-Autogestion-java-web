@@ -57,8 +57,18 @@ public class AlumnoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("alumnos", alumnoDAO.listar());
-            request.getRequestDispatcher("/jsp/jsp_alumnos/Alumnos.jsp").forward(request, response);
+            String servletPath = request.getServletPath();
+            switch (servletPath){
+                case "/jsp/jsp_profesor/AlumnoCali":
+                    request.setAttribute("alumnos", alumnoDAO.listar());
+                    request.getRequestDispatcher("/jsp/jsp_profesor/Calificaciones.jsp").forward(request, response);
+                break;
+                case "/jsp/jsp_alumnos/AlumnoCurso":
+                    request.setAttribute("alumnos", alumnoDAO.listar());
+                    request.getRequestDispatcher("/jsp/jsp_profesor/Alumnos.jsp").forward(request, response);
+                break;
+            }
+
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }

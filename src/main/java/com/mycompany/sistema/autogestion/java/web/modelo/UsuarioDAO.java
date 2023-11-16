@@ -114,4 +114,28 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             throw new RuntimeException(ex);
         }
     }
+    
+    public int obtenerIDporNombre(String nombre, String apellido){
+        int id=0;
+        String query = "SELECT a.id_alumno FROM alumno a" + 
+                "INNER JOIN usuario u ON u.id_usuario = a.id_usuario" +
+                "WHERE u.nombre = ? AND u.apellido = ?";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+                PreparedStatement ps = con.prepareStatement(query)){
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            try(ResultSet rs = ps.executeQuery()){
+                if(rs.next()){
+                    id=rs.getInt("id_alumno");
+                }
+            } catch (SQLException x){
+                throw new RuntimeException (x);
+            }
+        } catch (SQLException x){
+            throw new RuntimeException (x);
+        }
+        return id;
+    }
 }
+
+    

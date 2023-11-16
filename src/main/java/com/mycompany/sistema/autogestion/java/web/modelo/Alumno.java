@@ -17,6 +17,7 @@ public class Alumno extends Usuario {
         super(idUsuario, nombre, apellido, email, contrasenia, estado);
         this.idAlumno = idAlumno;
         //this.idCursada = idCursada;
+
     }
 
     public int getIdAlumno() {
