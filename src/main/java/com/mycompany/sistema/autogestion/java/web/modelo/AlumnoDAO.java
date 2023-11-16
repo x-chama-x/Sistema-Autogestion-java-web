@@ -5,6 +5,10 @@
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
 import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -48,9 +52,25 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     }
 
     @Override
-    public Alumno buscar(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public Alumno buscar(Integer id) {
+        Alumno a = null;
+        String query = "SELECT * FROM alumno WHERE id_alumno = ?";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, id);
+            try(ResultSet rs = ps.executeQuery()) {
+                if(rs.next()) {
+                    a = rsRowToAlumno(rs);
+                }
+            } catch(SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return a;
     }
+
     private void insertarAlumnos() {
         addAlumno(new Alumno(contador, contador, "Juan", "Pérez", "juan@example.com","contrasenia1",Estado.ACTIVO));
         addAlumno(new Alumno(contador, contador, "María", "Gómez", "maria@example.com","contrasenia2",Estado.ACTIVO));
