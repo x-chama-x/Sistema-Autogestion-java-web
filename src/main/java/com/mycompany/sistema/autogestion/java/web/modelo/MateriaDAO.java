@@ -63,4 +63,24 @@ public class MateriaDAO implements DAO<Materia, Integer> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public int obtenerIDporMateria(String materia){
+        int id=0;
+        String query = "SELECT id_materia FROM materia" + 
+                "WHERE materia.nombre = ?";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+                PreparedStatement ps = con.prepareStatement(query)){
+            ps.setString(1, materia);
+            try(ResultSet rs = ps.executeQuery()){
+                if(rs.next()){
+                    id=rs.getInt("id_materia");
+                }
+            } catch (SQLException x){
+                throw new RuntimeException (x);
+            }
+        } catch (SQLException x){
+            throw new RuntimeException (x);
+        }
+        return id;
+    }
+    
 }

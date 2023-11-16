@@ -37,6 +37,7 @@
         <servlet-name>CalificacionServlet</servlet-name>
         <url-pattern>/jsp/jsp_alumnos/calificaciones</url-pattern>
         <url-pattern>/jsp/jsp_profesor/calificacion</url-pattern>
+        <url-pattern>/jsp/jsp_profesor/addCalificacion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CursoServlet</servlet-name>

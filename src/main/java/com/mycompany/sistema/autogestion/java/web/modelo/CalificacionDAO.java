@@ -18,8 +18,23 @@ import java.util.List;
 public class CalificacionDAO implements	DAO<Calificacion, Integer> {
 
     @Override
-    public void insertar(Calificacion entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void insertar(Calificacion entidad) {
+        String query = "INSERT INTO calificacion (nota, num_examen, id_alumno, id_materia)"+
+        "VALUES (?, ?, ?, ?)";
+        try (Connection con = ConnectionPool.getInstance().getConnection();
+                PreparedStatement ps = con.prepareStatement(query)){
+            ps.setInt(1, entidad.getNota());
+            ps.setInt(2, entidad.getNumExamen());
+            ps.setInt(3, entidad.getIdAlumno());
+            ps.setInt(4, entidad.getIdMateria());
+            try (ResultSet rs = ps.executeQuery()){
+                
+            } catch (SQLException ex){
+                throw new RuntimeException (ex); 
+            }
+        } catch (SQLException ex){
+            throw new RuntimeException (ex); 
+        }
     }
 
     @Override

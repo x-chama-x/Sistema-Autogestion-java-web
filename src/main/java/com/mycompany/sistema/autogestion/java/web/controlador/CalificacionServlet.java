@@ -11,7 +11,9 @@ import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.ConnectionPool;
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
+import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -76,16 +78,24 @@ public class CalificacionServlet extends HttpServlet {
             throws ServletException, IOException {
             HttpSession session = request.getSession();
         try {
-            if(session.getAttribute("rolUser").equals("alumno")) {
-                request.setAttribute("calificaciones", calificacionDAO.listar());
-                request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
-            } else if(session.getAttribute("rolUser").equals("profesor")) {
-                int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
-                int idProfesor = calificacionDAO.obtenerIdProfesorPorIdUsuario(idUsuario);
-                request.setAttribute("calificaciones", calificacionDAO.listar(idProfesor));
-
-                request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);
+            String servletPath = request.getServletPath();
+            switch (servletPath){
+                case "/jsp/jsp_alumnos/calificaciones":
+                    request.setAttribute("calificaciones", calificacionDAO.listar());
+                    request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);         
+                break;
+                case "/jsp/jsp_profesor/calificacion":
+                    int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
+                    int idProfesor = calificacionDAO.obtenerIdProfesorPorIdUsuario(idUsuario);
+                    request.setAttribute("calificaciones", calificacionDAO.listar(idProfesor));
+                    request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);  
+                break;
+                case "/jsp/jsp_profesor/addCalificacion":
+                    request.getRequestDispatcher("/jsp/jsp_alumnos/AgregarCalificaciones.html").forward(request, response);
+                break;
             }
+            
+          
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }
@@ -110,7 +120,18 @@ public class CalificacionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        int numExamen = Integer.parseInt(request.getParameter("numExamen"));
+        int nota = Integer.parseInt(request.getParameter("nota"));
+        String materia = request.getParameter("materia");
+        UsuarioDAO u = new UsuarioDAO();
+        int id = u.obtenerIDporNombre(nombre, apellido);
+        MateriaDAO m = new MateriaDAO();
+        int idMateria = m.obtenerIDporMateria(materia);
+        Calificacion c = new Calificacion(nota,numExamen,id,idMateria);
+        calificacionDAO.insertar(c);
+        request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request,response);
     }
 
     /**

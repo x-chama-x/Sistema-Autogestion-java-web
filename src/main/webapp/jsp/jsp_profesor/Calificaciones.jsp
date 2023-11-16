@@ -67,7 +67,7 @@
         </c:forEach>
         <tr>
             <td class="tabletd" colspan="4">
-                <a href="./AgregarCalificaciones.html">agregar calificacion</a>
+                <a href="addCalificacion">agregar calificacion</a>
             </td>
         </tr>
     </table>
