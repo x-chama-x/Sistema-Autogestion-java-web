@@ -81,18 +81,17 @@ public class CalificacionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             HttpSession session = request.getSession();
+            int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
         try {
             String servletPath = request.getServletPath();
             switch (servletPath){
                 case "/jsp/jsp_alumnos/calificaciones":
-                    int idUsuario = getIdUsuarioBySession(request);
                     int idAlumno = getIdAlumnoFromIdUsuario(idUsuario);
                     request.setAttribute("calificaciones", calificacionDAO.listar(idAlumno));
                     request.getRequestDispatcher("/jsp/jsp_alumnos/materiasCalif").forward(request, response);         
                 break;
                 case "/jsp/jsp_profesor/calificacion":
-                    int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
-                    int idProfesor = calificacionDAO.obtenerIdProfesorPorIdUsuario(idUsuario);
+                    int idProfesor = obtenerIdProfesorPorIdUsuario(idUsuario);
                     request.setAttribute("calificaciones", calificacionDAO.listar(idProfesor));
                     request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);  
                 break;
@@ -112,16 +111,14 @@ public class CalificacionServlet extends HttpServlet {
         return usuario.getIdUsuario();
     }
 
-
-    private int getIdUsuarioBySession(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        Usuario userLogueado = (Usuario) session.getAttribute("userLogueado");
-        return userLogueado.getIdUsuario();
-    }
-
     private int getIdAlumnoFromIdUsuario(int idUsuario) {
         AlumnoDAO aDao = new AlumnoDAO();
         return aDao.buscar(idUsuario).getIdAlumno();
+    }
+
+    private int obtenerIdProfesorPorIdUsuario(int idUsuario) {
+        ProfesorDAO pDao = new ProfesorDAO();
+        return pDao.buscar(idUsuario).getIdProfesor();
     }
 
     /**
