@@ -25,9 +25,7 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <nav class="navcontainer">
-            <a href="../MenuAdmin.html" class="nava">Salir</a>
-        </nav>
-        <a href="./MostrarUsuario.html">mostrarUser</a>
+        <a href="../MenuAdmin.jsp" class="asalir"> salir</a>
+        <a href="./MostrarUsuario.jsp">mostrarUser</a>
     </body>
 </html>
