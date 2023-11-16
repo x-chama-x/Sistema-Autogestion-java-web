@@ -1,4 +1,6 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%-- 
     Document   : Cursos

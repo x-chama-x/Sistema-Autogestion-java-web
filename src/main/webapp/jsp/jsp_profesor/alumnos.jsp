@@ -1,4 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%-- 
     Document   : Alumnos
     Created on : 2 nov. 2023, 00:45:48
