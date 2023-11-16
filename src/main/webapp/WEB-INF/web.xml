@@ -60,6 +60,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MateriaServlet</servlet-name>
+        <url-pattern>/jsp/jsp_alumnos/materiasCalif</url-pattern>
         <url-pattern>/jsp/jsp_alumnos/materias</url-pattern>
         <url-pattern>/jsp/jsp_profesor/materias</url-pattern>
     </servlet-mapping>

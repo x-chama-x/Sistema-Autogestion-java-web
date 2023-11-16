@@ -72,13 +72,18 @@ public class MateriaServlet extends HttpServlet {
                 case "/jsp/jsp_profesor/materias":
                     request.setAttribute("materias", materiaDAO.listar());
                     request.getRequestDispatcher("/jsp/jsp_profesor/AlumnoCali").forward(request, response);
-                break;
+                    break;
                 case "/jsp/jsp_alumnos/materias":
                     request.setAttribute("materias", materiaDAO.listar());
                     request.getRequestDispatcher("/jsp/jsp_alumnos/Materias.jsp").forward(request, response);
-                break;
+                    break;
+                case "/jsp/jsp_alumnos/materiasCalif":
+                    request.setAttribute("materias", materiaDAO.listar());
+                    request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);
+                    break;
+                default:
+                    response.sendError(404, "Recurso no encontrado");
             }
-
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }

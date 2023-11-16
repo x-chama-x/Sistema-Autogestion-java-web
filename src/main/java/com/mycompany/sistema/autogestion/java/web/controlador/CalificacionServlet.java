@@ -7,6 +7,7 @@ package com.mycompany.sistema.autogestion.java.web.controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.ConnectionPool;
@@ -20,10 +21,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
 
 /**
  *
@@ -81,8 +85,10 @@ public class CalificacionServlet extends HttpServlet {
             String servletPath = request.getServletPath();
             switch (servletPath){
                 case "/jsp/jsp_alumnos/calificaciones":
-                    request.setAttribute("calificaciones", calificacionDAO.listar());
-                    request.getRequestDispatcher("/jsp/jsp_alumnos/Calificaciones.jsp").forward(request, response);         
+                    int idUsuario = getIdUsuarioBySession(request);
+                    int idAlumno = getIdAlumnoFromIdUsuario(idUsuario);
+                    request.setAttribute("calificaciones", calificacionDAO.listar(idAlumno));
+                    request.getRequestDispatcher("/jsp/jsp_alumnos/materiasCalif").forward(request, response);         
                 break;
                 case "/jsp/jsp_profesor/calificacion":
                     int idUsuario = obtenerIdUsuarioDesdeSesion(session); // Obtener el ID del usuario desde la sesión
@@ -93,9 +99,7 @@ public class CalificacionServlet extends HttpServlet {
                 case "/jsp/jsp_profesor/addCalificacion":
                     request.getRequestDispatcher("/jsp/jsp_alumnos/AgregarCalificaciones.html").forward(request, response);
                 break;
-            }
-            
-          
+            }  
         } catch (Exception e) {
             response.sendError(500, e.getMessage());
         }
@@ -108,6 +112,17 @@ public class CalificacionServlet extends HttpServlet {
         return usuario.getIdUsuario();
     }
 
+
+    private int getIdUsuarioBySession(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Usuario userLogueado = (Usuario) session.getAttribute("userLogueado");
+        return userLogueado.getIdUsuario();
+    }
+
+    private int getIdAlumnoFromIdUsuario(int idUsuario) {
+        AlumnoDAO aDao = new AlumnoDAO();
+        return aDao.buscar(idUsuario).getIdAlumno();
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.

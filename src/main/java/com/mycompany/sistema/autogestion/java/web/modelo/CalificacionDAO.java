@@ -87,6 +87,27 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
 
+    public List<Calificacion> listar(int idAlumno) {
+        List<Calificacion> calificaciones = new LinkedList<>();
+        String query = "SELECT * FROM calificacion" + 
+                       "INNER JOIN alumno a ON c.id_alumno = a.id_alumno" +
+                       "WHERE a.id_alumno = ?";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, idAlumno);
+            try(ResultSet rs = ps.executeQuery()) {
+                while(rs.next()) {
+                    calificaciones.add(rsRowToCalificacion(rs));
+                }
+            } catch(SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch(SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return calificaciones;
+    }
+
     private Calificacion rsRowToCalificacion(ResultSet rs) {
         try {
             int idCalificacion = rs.getInt("id_calificacion");

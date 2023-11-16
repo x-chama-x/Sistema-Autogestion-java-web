@@ -30,16 +30,34 @@ CREATE TABLE IF NOT EXISTS `secundariabd`.`usuario` (
 
 
 -- -----------------------------------------------------
+-- Table `secundariabd`.`cursada`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `secundariabd`.`cursada` (
+  `id_cursada` INT NOT NULL AUTO_INCREMENT,
+  `anio_division` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_cursada`),
+  UNIQUE INDEX `anio_division_UNIQUE` (`anio_division` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `secundariabd`.`alumno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `secundariabd`.`alumno` (
   `id_alumno` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
-  PRIMARY KEY (`id_alumno`, `id_usuario`),
+  `id_cursada` INT NOT NULL,
+  PRIMARY KEY (`id_alumno`, `id_usuario`, `id_cursada`),
   INDEX `fk_alumnos_usuarios1_idx` (`id_usuario` ASC) VISIBLE,
+  INDEX `fk_alumno_cursada1_idx` (`id_cursada` ASC) VISIBLE,
   CONSTRAINT `fk_alumnos_usuarios1`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `secundariabd`.`usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_alumno_cursada1`
+    FOREIGN KEY (`id_cursada`)
+    REFERENCES `secundariabd`.`cursada` (`id_cursada`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -84,17 +102,6 @@ CREATE TABLE IF NOT EXISTS `secundariabd`.`administrador` (
     REFERENCES `secundariabd`.`usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `secundariabd`.`cursada`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `secundariabd`.`cursada` (
-  `id_cursada` INT NOT NULL AUTO_INCREMENT,
-  `anio_division` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_cursada`),
-  UNIQUE INDEX `anio_division_UNIQUE` (`anio_division` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

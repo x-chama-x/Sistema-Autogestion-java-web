@@ -35,7 +35,7 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajoAlum</a>
-        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajoProfe</a>
+        <%-- <a href="./jsp/jsp_alumnos/MenuAlumno.jsp">atajoAlum</a>
+        <a href="./jsp/jsp_profesor/MenuProfesor.jsp">atajoProfe</a> --%>
     </body>
 </html>

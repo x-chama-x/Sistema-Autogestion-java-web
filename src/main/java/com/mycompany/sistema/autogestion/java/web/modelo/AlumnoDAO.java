@@ -16,10 +16,7 @@ import java.util.List;
  * @author Francisco
  */
 public class AlumnoDAO implements DAO<Alumno, Integer>  {
-    
-    public void addAlumno(Alumno alumno){ 
-    }
-        
+  
     @Override
     public void insertar(Alumno entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); 
@@ -82,8 +79,23 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     
 
     @Override
-    public Alumno buscar(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public Alumno buscar(Integer id) {
+        Alumno a = null;
+        String query = "SELECT * FROM alumno WHERE id_alumno = ?";
+        try(Connection con = ConnectionPool.getInstance().getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, id);
+            try(ResultSet rs = ps.executeQuery()) {
+                if(rs.next()) {
+                    a = rsRowToAlumno(rs);
+                }
+            } catch(SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return a;
     }
 
     Alumno rsRowToAlumno(ResultSet rs) {
