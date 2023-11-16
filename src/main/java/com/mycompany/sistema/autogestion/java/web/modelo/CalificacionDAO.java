@@ -64,7 +64,7 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
     
     //obtener las calificaciones de los alumnos de los cursos administrados por un profesor específico
-    public List<Calificacion> listar(int idProfesor) {
+    public List<Calificacion> listarPorIdProfesor(int idProfesor) {
         List<Calificacion> calificaciones = new LinkedList<>();
         String query = "SELECT c.* " +
                        "FROM calificacion c " +
@@ -87,7 +87,7 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
 
-    public List<Calificacion> listar(int idAlumno) {
+    public List<Calificacion> listarPorIdAlumno(int idAlumno) {
         List<Calificacion> calificaciones = new LinkedList<>();
         String query = "SELECT * FROM calificacion" + 
                        "INNER JOIN alumno a ON c.id_alumno = a.id_alumno" +

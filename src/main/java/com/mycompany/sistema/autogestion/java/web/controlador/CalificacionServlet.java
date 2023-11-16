@@ -87,12 +87,12 @@ public class CalificacionServlet extends HttpServlet {
             switch (servletPath){
                 case "/jsp/jsp_alumnos/calificaciones":
                     int idAlumno = getIdAlumnoFromIdUsuario(idUsuario);
-                    request.setAttribute("calificaciones", calificacionDAO.listar(idAlumno));
+                    request.setAttribute("calificaciones", calificacionDAO.listarPorIdAlumno(idAlumno));
                     request.getRequestDispatcher("/jsp/jsp_alumnos/materiasCalif").forward(request, response);         
                 break;
                 case "/jsp/jsp_profesor/calificacion":
                     int idProfesor = obtenerIdProfesorPorIdUsuario(idUsuario);
-                    request.setAttribute("calificaciones", calificacionDAO.listar(idProfesor));
+                    request.setAttribute("calificaciones", calificacionDAO.listarPorIdProfesor(idProfesor));
                     request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);  
                 break;
                 case "/jsp/jsp_profesor/addCalificacion":
