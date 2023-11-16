@@ -13,6 +13,7 @@ import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.ConnectionPool;
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
+import com.mycompany.sistema.autogestion.java.web.modelo.ProfesorDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
 import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 

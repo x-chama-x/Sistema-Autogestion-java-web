@@ -81,7 +81,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     @Override
     public Alumno buscar(Integer id) {
         Alumno a = null;
-        String query = "SELECT * FROM alumno WHERE id_alumno = ?";
+        String query = "SELECT * FROM alumno WHERE id_alumno = ?"; //TODO arreglar la query para que traiga los datos correspondientes
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);
