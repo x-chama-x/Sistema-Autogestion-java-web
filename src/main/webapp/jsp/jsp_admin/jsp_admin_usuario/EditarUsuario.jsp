@@ -49,6 +49,6 @@
                 <input type="submit" value="Ingresar" class="formingresar">
             </div>
         </form>
-        <a class = "asalir" href="../MenuAdmin.html">Salir</a>
+        <a class = "asalir" href="../MenuAdmin.jsp">Salir</a>
     </body>
 </html>
