@@ -1,11 +1,13 @@
 
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Manuel Botas
  */
-public class Usuario {
+public class UsuarioBean implements Serializable {
     private int idUsuario;
     private String nombre;
     private String apellido;
@@ -13,7 +15,10 @@ public class Usuario {
     private String contrasenia;
     private Estado estado;
 
-    public Usuario(int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
+    public UsuarioBean() {
+    }
+
+    public UsuarioBean(int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
