@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author manue
+ * @author Manuel Botas
  */
 public class MateriaServlet extends HttpServlet {
     
