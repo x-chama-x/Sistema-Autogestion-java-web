@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
 import java.util.ArrayList;
@@ -29,12 +26,12 @@ public class CursoDAO implements DAO<Curso, Integer> {
 
     @Override
     public void modificar(Curso entidad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void eliminar(Curso id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -44,7 +41,7 @@ public class CursoDAO implements DAO<Curso, Integer> {
 
     @Override
     public Curso buscar(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void insertarCursos() {
@@ -55,5 +52,6 @@ public class CursoDAO implements DAO<Curso, Integer> {
         insertar(new Curso(contador,"33"));
         insertar(new Curso(contador,"35"));
     }
+    
 }
 
