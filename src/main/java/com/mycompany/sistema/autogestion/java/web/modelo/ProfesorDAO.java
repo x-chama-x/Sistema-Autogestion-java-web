@@ -38,7 +38,7 @@ public class ProfesorDAO implements DAO<ProfesorBean,Integer> {
         ProfesorBean p = null;
         String query = "SELECT * FROM profesor p\n" + //
                        "INNER JOIN usuario u ON u.id_usuario = p.id_usuario\n" + //
-                       "WHERE id_profesor = ?";
+                       "WHERE u.id_usuario = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);

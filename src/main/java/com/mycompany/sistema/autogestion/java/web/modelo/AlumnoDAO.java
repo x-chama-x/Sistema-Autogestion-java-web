@@ -79,7 +79,7 @@ public class AlumnoDAO implements DAO<AlumnoBean, Integer>  {
         AlumnoBean a = null;
         String query = "SELECT * FROM alumno a\n" + //
                        "INNER JOIN usuario u ON u.id_usuario = a.id_usuario\n" + //
-                       "WHERE id_alumno = ?";
+                       "WHERE a.id_usuario = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);

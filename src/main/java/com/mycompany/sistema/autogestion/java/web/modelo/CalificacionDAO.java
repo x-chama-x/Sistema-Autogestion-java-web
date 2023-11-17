@@ -86,6 +86,7 @@ public class CalificacionDAO implements	DAO<CalificacionBean, Integer> {
 
     public List<CalificacionBean> listarPorIdAlumno(int idAlumno) {
         List<CalificacionBean> calificaciones = new LinkedList<>();
+        //TODO Arreglar esta consulta
         String query = "SELECT * FROM calificacion c" +
                        "INNER JOIN alumno a ON c.id_alumno = a.id_alumno" +
                        "WHERE a.id_alumno = ?";
