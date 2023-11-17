@@ -1,18 +1,23 @@
 
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Manuel Botas
  */
-public class Calificacion {
+public class CalificacionBean implements Serializable{
     private int idCalificacion;
     private int nota;
     private int numExamen;
     private int idAlumno;
     private int idMateria;
 
-    public Calificacion(int idCalificacion, int nota, int numExamen, int idAlumno, int idMateria) {
+    public CalificacionBean() {
+    }
+
+    public CalificacionBean(int idCalificacion, int nota, int numExamen, int idAlumno, int idMateria) {
         this.idCalificacion = idCalificacion;
         this.nota = nota;
         this.numExamen = numExamen;
@@ -20,7 +25,7 @@ public class Calificacion {
         this.idMateria = idMateria;
     }
 
-    public Calificacion(int nota, int numExamen, int idAlumno, int idMateria) {
+    public CalificacionBean(int nota, int numExamen, int idAlumno, int idMateria) {
         this.nota = nota;
         this.numExamen = numExamen;
         this.idAlumno = idAlumno;
