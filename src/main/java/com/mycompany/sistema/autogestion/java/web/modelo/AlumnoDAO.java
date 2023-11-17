@@ -74,11 +74,12 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
         return alumnos;
     }
     
-
     @Override
     public Alumno buscar(Integer id) {
         Alumno a = null;
-        String query = "SELECT * FROM alumno WHERE id_alumno = ?"; //TODO arreglar la query para que traiga los datos correspondientes
+        String query = "SELECT * FROM alumno a\n" + //
+                       "INNER JOIN usuario u ON u.id_usuario = a.id_usuario\n" + //
+                       "WHERE id_alumno = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);
@@ -95,7 +96,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
         return a;
     }
 
-    Alumno rsRowToAlumno(ResultSet rs) {
+    private Alumno rsRowToAlumno(ResultSet rs) {
         try {
             int idAlumno = rs.getInt("id_alumno");
             int idUsuario = rs.getInt("id_usuario");
@@ -105,8 +106,9 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
             String contrasenia = rs.getString("contraseña");
             Estado estado = Estado.valueOf(rs.getString("estado").toUpperCase());
             return new Alumno(idAlumno,idUsuario,nombre,apellido,email,contrasenia,estado);
-        } catch (SQLException ex) {
+        } catch(SQLException ex) {
             throw new RuntimeException(ex);
         }
     }
+
 }
