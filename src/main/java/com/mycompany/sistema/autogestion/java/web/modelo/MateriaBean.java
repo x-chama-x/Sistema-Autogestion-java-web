@@ -1,15 +1,20 @@
 
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Manuel Botas
  */
-public class Materia {
+public class MateriaBean implements Serializable {
     private int idMateria;
     private String nombre;
 
-    public Materia(int idMateria, String nombre) {
+    public MateriaBean() {
+    }
+
+    public MateriaBean(int idMateria, String nombre) {
         this.idMateria = idMateria;
         this.nombre = nombre;
     }
