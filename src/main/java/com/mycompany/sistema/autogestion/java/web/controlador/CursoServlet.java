@@ -1,7 +1,6 @@
 
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
