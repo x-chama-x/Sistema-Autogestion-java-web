@@ -61,7 +61,7 @@
                     ${calificacion.nota}
                 </td>
                 <td class="tabletd">
-                    <a href="./AgregarCalificaciones.html">editar</a>
+                    <a href="http://">editar</a>
                 </td>
             </tr>
         </c:forEach>

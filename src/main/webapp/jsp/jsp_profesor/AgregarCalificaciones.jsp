@@ -13,7 +13,7 @@
     </head>
     <body>
         <c:import url= "/header.jsp"/>
-        <form class="form" method="post">
+        <form action="addCalificacion" class="form" method="post">
             <h4 class = formheader>Agregar curso</h4>
             <div class="container">
                 <div class="formgroup">
@@ -42,7 +42,7 @@
                 <br>
                 <div class="formgroup">
                     <label for="estado" class="formlabel">Materia </label>
-                    <input type="text" id="estado" name="estado" class="forminput">
+                    <input type="text" id="materia" name="materia" class="forminput">
                     <span class="formspan"></span>
                 </div>
                 <br>
