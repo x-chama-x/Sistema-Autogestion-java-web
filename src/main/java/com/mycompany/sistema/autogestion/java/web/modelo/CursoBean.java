@@ -1,15 +1,20 @@
 
 package com.mycompany.sistema.autogestion.java.web.modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Francisco
  */
-public class Curso {
+public class CursoBean implements Serializable {
     private int id_cursada;
     private String anioDivision;
 
-    public Curso(int id_cursada, String anioDivision) {
+    public CursoBean() {
+    }
+
+    public CursoBean(int id_cursada, String anioDivision) {
         this.id_cursada = id_cursada;
         this.anioDivision = anioDivision;
     }
