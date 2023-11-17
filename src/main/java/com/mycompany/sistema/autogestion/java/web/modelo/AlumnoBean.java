@@ -5,16 +5,20 @@ package com.mycompany.sistema.autogestion.java.web.modelo;
  *
  * @author Francisco
  */
-public class Alumno extends Usuario {
+public class AlumnoBean extends UsuarioBean {
     private int idAlumno;
     private int idCursada;
+
+    public AlumnoBean() {
+        super();
+    }
     
-    public Alumno(int idAlumno, int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
+    public AlumnoBean(int idAlumno, int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
         super(idUsuario, nombre, apellido, email, contrasenia, estado);
         this.idAlumno = idAlumno;
     }
 
-    public Alumno(int idAlumno, int idCursada, int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
+    public AlumnoBean(int idAlumno, int idCursada, int idUsuario, String nombre, String apellido, String email, String contrasenia, Estado estado) {
         super(idUsuario, nombre, apellido, email, contrasenia, estado);
         this.idAlumno = idAlumno;
         this.idCursada = idCursada;
