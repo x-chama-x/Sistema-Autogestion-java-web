@@ -85,7 +85,7 @@ public class CalificacionServlet extends HttpServlet {
                     request.getRequestDispatcher("/jsp/jsp_profesor/materias").forward(request, response);  
                 break;
                 case "/jsp/jsp_profesor/addCalificacion":
-                    request.getRequestDispatcher("/jsp/jsp_alumnos/AgregarCalificaciones.html").forward(request, response);
+                    request.getRequestDispatcher("/jsp/jsp_profesor/AgregarCalificaciones.jsp").forward(request, response);
                 break;
             }  
         } catch (Exception e) {
