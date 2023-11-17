@@ -62,8 +62,8 @@ public class MateriaDAO implements DAO<MateriaBean, Integer> {
     
     public int obtenerIDporMateria(String materia){
         int id=0;
-        String query = "SELECT id_materia FROM materia" + 
-                "WHERE materia.nombre = ?";
+        String query = "SELECT id_materia FROM materia " + 
+                       "WHERE materia.nombre = ?";
         try (Connection con = ConnectionPool.getInstance().getConnection();
                 PreparedStatement ps = con.prepareStatement(query)){
             ps.setString(1, materia);

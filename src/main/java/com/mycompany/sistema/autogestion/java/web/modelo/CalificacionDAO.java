@@ -24,11 +24,7 @@ public class CalificacionDAO implements	DAO<CalificacionBean, Integer> {
             ps.setInt(2, entidad.getNumExamen());
             ps.setInt(3, entidad.getIdAlumno());
             ps.setInt(4, entidad.getIdMateria());
-            try (ResultSet rs = ps.executeQuery()){
-                
-            } catch (SQLException ex){
-                throw new RuntimeException (ex); 
-            }
+            ps.executeUpdate();
         } catch (SQLException ex){
             throw new RuntimeException (ex); 
         }
@@ -87,8 +83,8 @@ public class CalificacionDAO implements	DAO<CalificacionBean, Integer> {
     public List<CalificacionBean> listarPorIdAlumno(int idAlumno) {
         List<CalificacionBean> calificaciones = new LinkedList<>();
         //TODO Arreglar esta consulta
-        String query = "SELECT * FROM calificacion c" +
-                       "INNER JOIN alumno a ON c.id_alumno = a.id_alumno" +
+        String query = "SELECT * FROM calificacion c\n" +
+                       "INNER JOIN alumno a ON c.id_alumno = a.id_alumno\n" +
                        "WHERE a.id_alumno = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {

@@ -109,8 +109,8 @@ public class UsuarioDAO implements DAO<UsuarioBean, Integer> {
     
     public int obtenerIDporNombre(String nombre, String apellido){
         int id=0;
-        String query = "SELECT a.id_alumno FROM alumno a" + 
-                "INNER JOIN usuario u ON u.id_usuario = a.id_usuario" +
+        String query = "SELECT * FROM alumno a\n" + 
+                "INNER JOIN usuario u ON u.id_usuario = a.id_usuario\n" +
                 "WHERE u.nombre = ? AND u.apellido = ?";
         try (Connection con = ConnectionPool.getInstance().getConnection();
                 PreparedStatement ps = con.prepareStatement(query)){
