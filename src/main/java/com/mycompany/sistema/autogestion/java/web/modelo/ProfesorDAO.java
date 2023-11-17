@@ -36,7 +36,9 @@ public class ProfesorDAO implements DAO<Profesor,Integer> {
     @Override
     public Profesor buscar(Integer id) {
         Profesor p = null;
-        String query = "SELECT * FROM profesor WHERE id_profesor = ?";
+        String query = "SELECT * FROM profesor p\n" + //
+                       "INNER JOIN usuario u ON u.id_usuario = p.id_usuario\n" + //
+                       "WHERE id_profesor = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);
@@ -53,7 +55,7 @@ public class ProfesorDAO implements DAO<Profesor,Integer> {
         return p;
     }
 
-    private Profesor rsRowToProfesor(ResultSet rs) throws SQLException {
+    private Profesor rsRowToProfesor(ResultSet rs) {
         try {
             int idProfesor = rs.getInt("id_profesor");
             int idUsuario = rs.getInt("id_usuario");
