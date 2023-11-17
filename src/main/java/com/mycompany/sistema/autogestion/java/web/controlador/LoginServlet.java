@@ -4,7 +4,7 @@ package com.mycompany.sistema.autogestion.java.web.controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
+import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioBean;
 import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 
 import jakarta.servlet.ServletException;
@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
         String mail = request.getParameter("mail");
         String contrasenia = request.getParameter("contrasenia");
         UsuarioDAO uDao = new UsuarioDAO();
-        Usuario user = uDao.buscar(mail, contrasenia);
+        UsuarioBean user = uDao.buscar(mail, contrasenia);
         if (user != null) {
             String rol = uDao.buscarRol(user.getIdUsuario());
             if(rol != null) {

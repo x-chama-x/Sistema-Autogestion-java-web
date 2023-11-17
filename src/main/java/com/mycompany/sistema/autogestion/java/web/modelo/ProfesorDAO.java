@@ -11,31 +11,31 @@ import java.util.List;
  *
  * @author Manuel Botas
  */
-public class ProfesorDAO implements DAO<Profesor,Integer> {
+public class ProfesorDAO implements DAO<ProfesorBean,Integer> {
 
     @Override
-    public void insertar(Profesor entidad) throws Exception {
+    public void insertar(ProfesorBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void modificar(Profesor entidad) throws Exception {
+    public void modificar(ProfesorBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void eliminar(Profesor id) throws Exception {
+    public void eliminar(ProfesorBean id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Profesor> listar() throws Exception {
+    public List<ProfesorBean> listar() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Profesor buscar(Integer id) {
-        Profesor p = null;
+    public ProfesorBean buscar(Integer id) {
+        ProfesorBean p = null;
         String query = "SELECT * FROM profesor p\n" + //
                        "INNER JOIN usuario u ON u.id_usuario = p.id_usuario\n" + //
                        "WHERE id_profesor = ?";
@@ -55,7 +55,7 @@ public class ProfesorDAO implements DAO<Profesor,Integer> {
         return p;
     }
 
-    private Profesor rsRowToProfesor(ResultSet rs) {
+    private ProfesorBean rsRowToProfesor(ResultSet rs) {
         try {
             int idProfesor = rs.getInt("id_profesor");
             int idUsuario = rs.getInt("id_usuario");
@@ -64,7 +64,7 @@ public class ProfesorDAO implements DAO<Profesor,Integer> {
             String email = rs.getString("email");
             String contrasenia = rs.getString("contraseña");
             Estado estado = Estado.valueOf(rs.getString("estado").toUpperCase());
-            return new Profesor(idProfesor, idUsuario, nombre, apellido, email, contrasenia, estado);
+            return new ProfesorBean(idProfesor, idUsuario, nombre, apellido, email, contrasenia, estado);
         } catch(SQLException ex) {
             throw new RuntimeException(ex);
         }

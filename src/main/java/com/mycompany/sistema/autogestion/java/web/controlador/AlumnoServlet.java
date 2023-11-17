@@ -4,7 +4,7 @@ package com.mycompany.sistema.autogestion.java.web.controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.mycompany.sistema.autogestion.java.web.modelo.Alumno;
+import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoBean;
 import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
 
@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Francisco
  */
 public class AlumnoServlet extends HttpServlet {
-    private DAO<Alumno, Integer> alumnoDAO;
+    private DAO<AlumnoBean, Integer> alumnoDAO;
     
     @Override
     public void init() throws ServletException {

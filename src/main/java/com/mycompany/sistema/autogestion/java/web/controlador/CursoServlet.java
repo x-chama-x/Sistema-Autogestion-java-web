@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.mycompany.sistema.autogestion.java.web.modelo.DAO;
-import com.mycompany.sistema.autogestion.java.web.modelo.Curso;
+import com.mycompany.sistema.autogestion.java.web.modelo.CursoBean;
 import com.mycompany.sistema.autogestion.java.web.modelo.CursoDAO;
 
 import jakarta.servlet.ServletException;
@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class CursoServlet extends HttpServlet {
 
-    private DAO<Curso, Integer> cursoDAO;
+    private DAO<CursoBean, Integer> cursoDAO;
     
     @Override
     public void init() throws ServletException {

@@ -12,26 +12,26 @@ import java.util.List;
  *
  * @author Manuel Botas
  */
-public class MateriaDAO implements DAO<Materia, Integer> {
+public class MateriaDAO implements DAO<MateriaBean, Integer> {
 
     @Override
-    public void insertar(Materia entidad) throws Exception {
+    public void insertar(MateriaBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void modificar(Materia entidad) throws Exception {
+    public void modificar(MateriaBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void eliminar(Materia id) throws Exception {
+    public void eliminar(MateriaBean id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Materia> listar() {
-        List<Materia> materias = new LinkedList<>();
+    public List<MateriaBean> listar() {
+        List<MateriaBean> materias = new LinkedList<>();
         String query = "SELECT * FROM materia";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query);
@@ -45,18 +45,18 @@ public class MateriaDAO implements DAO<Materia, Integer> {
         return materias;
     }
 
-    private Materia rsRowToMateria(ResultSet rs) {
+    private MateriaBean rsRowToMateria(ResultSet rs) {
         try {
             int idMateria = rs.getInt("id_materia");
             String nombre = rs.getString("nombre");
-            return new Materia(idMateria, nombre);
+            return new MateriaBean(idMateria, nombre);
         } catch (SQLException ex){
             throw new RuntimeException(ex);
         }
     }
 
     @Override
-    public Materia buscar(Integer id) throws Exception {
+    public MateriaBean buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

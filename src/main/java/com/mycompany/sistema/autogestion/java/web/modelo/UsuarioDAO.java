@@ -11,30 +11,30 @@ import java.util.List;
  *
  * @author Manuel Botas
  */
-public class UsuarioDAO implements DAO<Usuario, Integer> {
+public class UsuarioDAO implements DAO<UsuarioBean, Integer> {
 
     @Override
-    public void insertar(Usuario entidad) throws Exception {
+    public void insertar(UsuarioBean entidad) throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'insertar'");
     }
 
     @Override
-    public void modificar(Usuario entidad) throws Exception {
+    public void modificar(UsuarioBean entidad) throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'modificar'");
     }
 
     @Override
-    public void eliminar(Usuario id) throws Exception {
+    public void eliminar(UsuarioBean id) throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
     }
 
     @Override
-    public List<Usuario> listar() throws Exception {
+    public List<UsuarioBean> listar() throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'listar'");
     }
 
     @Override
-    public Usuario buscar(Integer id) throws Exception {
+    public UsuarioBean buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'buscar'");
     }
 
@@ -73,8 +73,8 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
     }
 
 
-    public Usuario buscar(String mail, String contrasenia) {
-        Usuario u = null;
+    public UsuarioBean buscar(String mail, String contrasenia) {
+        UsuarioBean u = null;
         String query = "SELECT * FROM usuario WHERE email = ? AND contraseña = ?";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
@@ -93,7 +93,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         return u;
     }
     
-    private Usuario rsRowToUsuario(ResultSet rs) {
+    private UsuarioBean rsRowToUsuario(ResultSet rs) {
         try {
             int idUsuario = rs.getInt("id_usuario");
             String nombre = rs.getString("nombre");
@@ -101,7 +101,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             String email = rs.getString("email");
             String contrasenia = rs.getString("contraseña");
             Estado estado = Estado.valueOf(rs.getString("estado").toUpperCase());
-            return new Usuario(idUsuario, nombre, apellido, email, contrasenia, estado);
+            return new UsuarioBean(idUsuario, nombre, apellido, email, contrasenia, estado);
         } catch(SQLException ex) {
             throw new RuntimeException(ex);
         }

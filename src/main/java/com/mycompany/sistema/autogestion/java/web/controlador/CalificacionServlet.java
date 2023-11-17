@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.mycompany.sistema.autogestion.java.web.modelo.AlumnoDAO;
-import com.mycompany.sistema.autogestion.java.web.modelo.Calificacion;
+import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionBean;
 import com.mycompany.sistema.autogestion.java.web.modelo.CalificacionDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.MateriaDAO;
 import com.mycompany.sistema.autogestion.java.web.modelo.ProfesorDAO;
-import com.mycompany.sistema.autogestion.java.web.modelo.Usuario;
+import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioBean;
 import com.mycompany.sistema.autogestion.java.web.modelo.UsuarioDAO;
 
 import jakarta.servlet.ServletException;
@@ -97,7 +97,7 @@ public class CalificacionServlet extends HttpServlet {
     // método para obtener el ID del usuario desde la sesión
     private int obtenerIdUsuarioDesdeSesion(HttpSession session) {
         // Asumo que el ID del usuario está almacenado en la sesión con el nombre "user"
-        Usuario usuario = (Usuario) session.getAttribute("userLogueado");
+        UsuarioBean usuario = (UsuarioBean) session.getAttribute("userLogueado");
         return usuario.getIdUsuario();
     }
 
@@ -131,7 +131,7 @@ public class CalificacionServlet extends HttpServlet {
         int id = u.obtenerIDporNombre(nombre, apellido);
         MateriaDAO m = new MateriaDAO();
         int idMateria = m.obtenerIDporMateria(materia);
-        Calificacion c = new Calificacion(nota,numExamen,id,idMateria);
+        CalificacionBean c = new CalificacionBean(nota,numExamen,id,idMateria);
         calificacionDAO.insertar(c);
         request.getRequestDispatcher("/jsp/jsp_profesor/MenuProfesor.jsp").forward(request,response);
     }

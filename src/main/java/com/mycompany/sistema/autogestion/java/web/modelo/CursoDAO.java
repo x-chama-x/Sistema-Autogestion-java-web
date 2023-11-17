@@ -8,9 +8,9 @@ import java.util.List;
  *
  * @author Francisco
  */
-public class CursoDAO implements DAO<Curso, Integer> {
+public class CursoDAO implements DAO<CursoBean, Integer> {
     private static int contador = 1;
-    private List <Curso> cursos;
+    private List <CursoBean> cursos;
 
     public CursoDAO() {
         this.cursos = new ArrayList<>();
@@ -18,39 +18,39 @@ public class CursoDAO implements DAO<Curso, Integer> {
     }
     
     @Override
-    public void insertar(Curso curso) {
+    public void insertar(CursoBean curso) {
         curso.setId_cursada(contador);
         cursos.add(curso);
         contador++;
     }
 
     @Override
-    public void modificar(Curso entidad) throws Exception {
+    public void modificar(CursoBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void eliminar(Curso id) throws Exception {
+    public void eliminar(CursoBean id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Curso> listar() {
+    public List<CursoBean> listar() {
         return new ArrayList<>(this.cursos);
     }
 
     @Override
-    public Curso buscar(Integer id) throws Exception {
+    public CursoBean buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void insertarCursos() {
-        insertar(new Curso(contador,"15"));
-        insertar(new Curso(contador,"13"));
-        insertar(new Curso(contador,"25"));
-        insertar(new Curso(contador,"23"));
-        insertar(new Curso(contador,"33"));
-        insertar(new Curso(contador,"35"));
+        insertar(new CursoBean(contador,"15"));
+        insertar(new CursoBean(contador,"13"));
+        insertar(new CursoBean(contador,"25"));
+        insertar(new CursoBean(contador,"23"));
+        insertar(new CursoBean(contador,"33"));
+        insertar(new CursoBean(contador,"35"));
     }
     
 }

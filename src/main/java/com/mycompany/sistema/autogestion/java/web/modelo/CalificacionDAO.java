@@ -12,10 +12,10 @@ import java.util.List;
  *
  * @author Manuel Botas
  */
-public class CalificacionDAO implements	DAO<Calificacion, Integer> {
+public class CalificacionDAO implements	DAO<CalificacionBean, Integer> {
 
     @Override
-    public void insertar(Calificacion entidad) {
+    public void insertar(CalificacionBean entidad) {
         String query = "INSERT INTO calificacion (nota, num_examen, id_alumno, id_materia)"+
         "VALUES (?, ?, ?, ?)";
         try (Connection con = ConnectionPool.getInstance().getConnection();
@@ -35,18 +35,18 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
     @Override
-    public void modificar(Calificacion entidad) throws Exception {
+    public void modificar(CalificacionBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void eliminar(Calificacion id) throws Exception {
+    public void eliminar(CalificacionBean id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Calificacion> listar() {
-        List<Calificacion> calificaciones = new LinkedList<>();
+    public List<CalificacionBean> listar() {
+        List<CalificacionBean> calificaciones = new LinkedList<>();
         String query = "SELECT * FROM calificacion";
         try(Connection con = ConnectionPool.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(query);
@@ -61,8 +61,8 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
     
     //obtener las calificaciones de los alumnos de los cursos administrados por un profesor específico
-    public List<Calificacion> listarPorIdProfesor(int idProfesor) {
-        List<Calificacion> calificaciones = new LinkedList<>();
+    public List<CalificacionBean> listarPorIdProfesor(int idProfesor) {
+        List<CalificacionBean> calificaciones = new LinkedList<>();
         String query = "SELECT c.* " +
                        "FROM calificacion c " +
                        "INNER JOIN alumno a ON c.id_alumno = a.id_alumno " +
@@ -84,8 +84,8 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
     }
 
 
-    public List<Calificacion> listarPorIdAlumno(int idAlumno) {
-        List<Calificacion> calificaciones = new LinkedList<>();
+    public List<CalificacionBean> listarPorIdAlumno(int idAlumno) {
+        List<CalificacionBean> calificaciones = new LinkedList<>();
         String query = "SELECT * FROM calificacion" + 
                        "INNER JOIN alumno a ON c.id_alumno = a.id_alumno" +
                        "WHERE a.id_alumno = ?";
@@ -105,21 +105,21 @@ public class CalificacionDAO implements	DAO<Calificacion, Integer> {
         return calificaciones;
     }
 
-    private Calificacion rsRowToCalificacion(ResultSet rs) {
+    private CalificacionBean rsRowToCalificacion(ResultSet rs) {
         try {
             int idCalificacion = rs.getInt("id_calificacion");
             int nota = rs.getInt("nota");
             int numExamen = rs.getInt("num_examen");
             int idAlumno = rs.getInt("id_alumno");
             int idMateria = rs.getInt("id_materia");
-            return new Calificacion(idCalificacion, nota, numExamen, idAlumno, idMateria);
+            return new CalificacionBean(idCalificacion, nota, numExamen, idAlumno, idMateria);
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     @Override
-    public Calificacion buscar(Integer id) throws Exception {
+    public CalificacionBean buscar(Integer id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

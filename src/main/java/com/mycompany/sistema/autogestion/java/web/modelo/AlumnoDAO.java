@@ -12,27 +12,27 @@ import java.util.List;
  *
  * @author Francisco
  */
-public class AlumnoDAO implements DAO<Alumno, Integer>  {
+public class AlumnoDAO implements DAO<AlumnoBean, Integer>  {
   
     @Override
-    public void insertar(Alumno entidad) throws Exception {
+    public void insertar(AlumnoBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public void modificar(Alumno entidad) throws Exception {
+    public void modificar(AlumnoBean entidad) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
-    public void eliminar(Alumno id) throws Exception {
+    public void eliminar(AlumnoBean id) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     // obtener todos los alumnos almacenados en la BD
     @Override
-    public List<Alumno> listar() {
-        List <Alumno> alumnos = new LinkedList<>(); 
+    public List<AlumnoBean> listar() {
+        List <AlumnoBean> alumnos = new LinkedList<>(); 
         String query = "SELECT * FROM alumno a\n" + "INNER JOIN usuario u ON u.id_usuario = a.id_usuario";
         try(Connection con = ConnectionPool.getInstance().getConnection();
                 PreparedStatement ps = con.prepareStatement(query);
@@ -48,9 +48,9 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     
      // obtener los alumnos por curso almacenados en la BD
     // se que no entra
-    public List<Alumno> listar(int curso) {
+    public List<AlumnoBean> listar(int curso) {
         System.out.println("FUNCIONA ESTO OBTENERALUMNOSPORCURSO");
-        List<Alumno> alumnos = new LinkedList<>();
+        List<AlumnoBean> alumnos = new LinkedList<>();
         String query = "SELECT DISTINCT u.id_usuario, a.id_alumno, u.nombre, u.apellido, u.email, UPPER(u.estado) AS estado " +
                        "FROM usuario u " +
                        "INNER JOIN alumno a ON u.id_usuario = a.id_usuario " +
@@ -75,8 +75,8 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
     }
     
     @Override
-    public Alumno buscar(Integer id) {
-        Alumno a = null;
+    public AlumnoBean buscar(Integer id) {
+        AlumnoBean a = null;
         String query = "SELECT * FROM alumno a\n" + //
                        "INNER JOIN usuario u ON u.id_usuario = a.id_usuario\n" + //
                        "WHERE id_alumno = ?";
@@ -96,7 +96,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
         return a;
     }
 
-    private Alumno rsRowToAlumno(ResultSet rs) {
+    private AlumnoBean rsRowToAlumno(ResultSet rs) {
         try {
             int idAlumno = rs.getInt("id_alumno");
             int idUsuario = rs.getInt("id_usuario");
@@ -105,7 +105,7 @@ public class AlumnoDAO implements DAO<Alumno, Integer>  {
             String email = rs.getString("email");
             String contrasenia = rs.getString("contraseña");
             Estado estado = Estado.valueOf(rs.getString("estado").toUpperCase());
-            return new Alumno(idAlumno,idUsuario,nombre,apellido,email,contrasenia,estado);
+            return new AlumnoBean(idAlumno,idUsuario,nombre,apellido,email,contrasenia,estado);
         } catch(SQLException ex) {
             throw new RuntimeException(ex);
         }
