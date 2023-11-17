@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package com.mycompany.sistema.autogestion.java.web.controlador;
 
 
@@ -42,7 +39,6 @@ public class CursoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -55,7 +51,6 @@ public class CursoServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -67,12 +62,12 @@ public class CursoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                try {
-                    request.setAttribute("cursos", cursoDAO.listar());
-                    request.getRequestDispatcher("/jsp/jsp_profesor/Cursos.jsp").forward(request, response);
-                } catch (Exception e) {
-                    response.sendError(500, e.getMessage());
-                }
+        try {
+            request.setAttribute("cursos", cursoDAO.listar());
+            request.getRequestDispatcher("/jsp/jsp_profesor/Cursos.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendError(500, e.getMessage());
+        }
     }
 
     /**
@@ -97,6 +92,6 @@ public class CursoServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
